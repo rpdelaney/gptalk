@@ -1,0 +1,109 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "gptalk"
+version = "0.1.0"
+description = "Talks to ChatGPT for you with stored prompts"
+authors = ["Ryan Delaney <ryan.patrick.delaney+git@protonmail.com>"]
+license = "Apache 2.0"
+readme = "README.rst"
+repository = "https://github.com/rpdelaney/gptalk"
+homepage = "https://pypi.org/project/gptalk"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.scripts]
+gptalk = "gptalk.cli:cli"
+
+[tool.poetry.dependencies]
+python = ">=3.11, <4.0"
+openai = ">=0.27.8"
+deal = ">=4.24.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+flake8 = "*"
+flake8-annotations-complexity = "*"
+flake8-bandit = "*"
+flake8-bugbear = "*"
+flake8-comprehensions = "*"
+flake8-docstrings = "*"
+flake8-pie = "*"
+flake8-simplify = "*"
+hypothesis = "*"
+mypy = "*"
+pytest = "*"
+pytest-cov = "*"
+
+[tool.poetry.dev-dependencies.isort]
+version = "*"
+extras = [ "pyproject",]
+
+[tool.black]
+line-length = 79
+target_version = [ "py310",]
+
+[tool.isort]
+combine_star = true
+indent = "    "
+length_sort = false
+line_length = 79
+multi_line_output = 3
+include_trailing_comma = true  # this prevents isort from fighting with black
+
+[tool.mypy]
+plugins = ["deal.mypy"]
+
+# any
+disallow_any_decorated = true
+disallow_any_explicit = false
+disallow_any_expr = false
+disallow_any_generics = true
+disallow_any_unimported = true
+disallow_subclassing_any = true
+
+# untyped
+allow_untyped_globals = false
+check_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+
+# optionals
+no_implicit_optional = true
+strict_optional = true
+
+# imports
+follow_imports = "normal"
+ignore_missing_imports = false
+
+warn_no_return = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+strict_equality = true
+
+# error formating
+pretty = true
+show_error_context = true
+show_column_numbers = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = ".venv.*"
+ignore_errors = true
