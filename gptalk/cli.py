@@ -20,6 +20,6 @@ def cli() -> None:
 @cli.command()
 def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
-    talk(sys.stdin.read())
+    talk(prompt_filename="vcard_prompt.txt", data=sys.stdin.read())
 
     sys.exit(0)

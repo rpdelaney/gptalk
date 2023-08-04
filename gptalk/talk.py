@@ -6,9 +6,11 @@ import openai
 from .models import Model
 
 
-def talk(data: str, model: str = "gpt-3.5-turbo") -> None:
+def talk(
+    prompt_filename: str, data: str, model: str = "gpt-3.5-turbo"
+) -> None:
     """Talk to ChatGPT."""
-    with open("vcard_prompt.txt") as f:
+    with open(prompt_filename) as f:
         vcard_prompt = "".join(line for line in f).format(userdata=data)
 
     start_time = time.time()
