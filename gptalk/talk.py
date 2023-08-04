@@ -3,8 +3,6 @@ import sys
 
 import openai
 
-from .models import Model
-
 
 def talk(
     prompt_filename: str, data: str, model: str = "gpt-3.5-turbo"
