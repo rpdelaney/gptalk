@@ -12,7 +12,7 @@ deal.activate()
 
 @click.group()
 def cli() -> None:
-    """Entrypoint for the command-line interface."""
+    """Do some stuff with ChatGPT."""
 
 
 @deal.has("io", "global", "stderr", "stdout")
