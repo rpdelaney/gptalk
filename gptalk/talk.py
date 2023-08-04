@@ -6,7 +6,7 @@ import openai
 from .models import Model
 
 
-def talk(data: str) -> None:
+def talk(data: str, model: str = "gpt-3.5-turbo") -> None:
     """Talk to ChatGPT."""
     with open("vcard_prompt.txt") as f:
         vcard_prompt = "".join(line for line in f).format(userdata=data)
@@ -14,7 +14,7 @@ def talk(data: str) -> None:
     start_time = time.time()
 
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model=model,
         messages=[
             {
                 "role": "system",
