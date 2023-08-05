@@ -10,13 +10,13 @@ from .talk import talk
 deal.activate()
 
 
+@click.version_option()
 @click.group()
 def cli() -> None:
     """Do some stuff with ChatGPT."""
 
 
 @deal.has("io", "global", "stderr", "stdout")
-@click.version_option()
 @cli.command()
 def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
