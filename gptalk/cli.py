@@ -10,6 +10,7 @@ from .talk import talk
 deal.activate()
 
 
+@deal.has("io")
 @click.version_option()
 @click.group()
 def cli() -> None:
