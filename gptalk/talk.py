@@ -3,13 +3,15 @@ import sys
 
 import openai
 
+from .utils import strip_html_tags
+
 
 def talk(
     prompt_filename: str, data: str, model: str = "gpt-3.5-turbo"
 ) -> None:
     """Talk to ChatGPT."""
     with open(prompt_filename) as f:
-        vcard_prompt = "".join(line for line in f).format(userdata=data)
+        prompt = "".join(line for line in f).format(userdata=data)
 
     start_time = time.time()
 
@@ -18,7 +20,7 @@ def talk(
         messages=[
             {
                 "role": "system",
-                "content": vcard_prompt,
+                "content": prompt,
             },
             {
                 "role": "user",
