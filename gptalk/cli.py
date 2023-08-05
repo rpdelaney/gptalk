@@ -10,9 +10,9 @@ from .talk import talk
 deal.activate()
 
 
-@deal.has("io")
-@click.version_option()
 @click.group()
+@click.version_option()
+@deal.has("io")
 def cli() -> None:
     """Do some stuff with ChatGPT."""
 
