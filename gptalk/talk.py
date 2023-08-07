@@ -14,24 +14,28 @@ def talk(
         prompt = "".join(line for line in f).format(userdata=data)
 
     start_time = time.time()
-
-    response = openai.ChatCompletion.create(
-        model=model,
-        messages=[
+    request = {
+        "temperature": 0,
+        "model": model,
+        "messages": [
             {
                 "role": "system",
                 "content": prompt,
             },
             {
                 "role": "user",
-                "content": str(data),
+                "content": strip_html_tags(str(data)),
             },
         ],
-        temperature=0,
+    }
+
+    print(
+        f"Sending request:\n{request}",
+        file=sys.stderr,
     )
+    response = openai.ChatCompletion.create(**request)
 
     response_time = time.time() - start_time
-
     print(
         f"Full response received:\n{response}",
         file=sys.stderr,
