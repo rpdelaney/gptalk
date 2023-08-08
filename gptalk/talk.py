@@ -3,8 +3,6 @@ import sys
 
 import openai
 
-from .utils import strip_html_tags
-
 
 def talk(
     prompt_filename: str, data: str, model: str = "gpt-3.5-turbo"
@@ -24,7 +22,7 @@ def talk(
             },
             {
                 "role": "user",
-                "content": strip_html_tags(str(data)),
+                "content": str(data),
             },
         ],
     }
