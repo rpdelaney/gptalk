@@ -1,4 +1,4 @@
-import time
+from time import time
 import sys
 
 import openai
@@ -11,7 +11,7 @@ def talk(
     with open(prompt_filename) as f:
         prompt = "".join(line for line in f).format(userdata=data)
 
-    start_time = time.time()
+    start_time = time()
     request = {
         "temperature": 0,
         "model": model,
@@ -33,7 +33,7 @@ def talk(
     )
     response = openai.ChatCompletion.create(**request)
 
-    response_time = time.time() - start_time
+    response_time = time() - start_time
     print(
         f"Full response received:\n{response}",
         file=sys.stderr,
