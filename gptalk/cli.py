@@ -36,6 +36,8 @@ def vcard() -> NoReturn:
     else:
         data = stdin
 
-    talk(prompt_filename="vcard_prompt.txt", data=data)
+    from .prompt_vcard import prompt
+
+    talk(prompt=prompt, data=data)
 
     sys.exit(0)
