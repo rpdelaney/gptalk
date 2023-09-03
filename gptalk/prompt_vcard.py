@@ -1,4 +1,4 @@
-# noqa
+# flake8: noqa
 prompt = """You are a vCard generator. You will read
 unstructured data, inside a fenced code block,
 that includes contact information, extracting

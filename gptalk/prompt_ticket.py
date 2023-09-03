@@ -1,4 +1,4 @@
-# noqa
+# flake8: noqa
 prompt = """You are the product manager for this software project, and you are tasked
 with writing a detailed task ticket for me.
 

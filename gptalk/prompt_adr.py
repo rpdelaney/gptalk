@@ -1,4 +1,4 @@
-# noqa
+# flake8: noqa
 prompt = """You are one of the product managers for my software project,
 and you are tasked with writing an Architectural Decision
 Record (ADR) for me.
