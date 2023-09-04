@@ -22,6 +22,18 @@ def cli() -> None:
 
 @deal.has("io", "global", "stderr", "stdout")
 @cli.command()
+def outline() -> NoReturn:
+    """Generate MECE outline of an arbitrary topic."""
+    stdin = sys.stdin.read().strip()
+    from .prompt_outline import prompt
+
+    talk(prompt=prompt, data=stdin)
+
+    sys.exit(0)
+
+
+@deal.has("io", "global", "stderr", "stdout")
+@cli.command()
 def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
     stdin = sys.stdin.read().strip()
