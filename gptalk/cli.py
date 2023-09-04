@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup as bs
 
 from .talk import talk
 from .utils import is_url
+from . import prompts
 
 deal.activate()
 
@@ -25,9 +26,8 @@ def cli() -> None:
 def outline() -> NoReturn:
     """Generate MECE outline of an arbitrary topic."""
     stdin = sys.stdin.read().strip()
-    from .prompt_outline import prompt
 
-    talk(prompt=prompt, data=stdin)
+    talk(prompt=prompts.outline, data=stdin)
 
     sys.exit(0)
 
@@ -48,8 +48,6 @@ def vcard() -> NoReturn:
     else:
         data = stdin
 
-    from .prompt_vcard import prompt
-
-    talk(prompt=prompt, data=data)
+    talk(prompt=prompts.vcard, data=data)
 
     sys.exit(0)
