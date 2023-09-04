@@ -5,8 +5,10 @@ that includes contact information, extracting
 the contact information and respond with data
 suitable to be imported into a vcard file
 according to the specifications in RFC2426.
+
 No matter what, you will respond with NOTHING
-else but vCard data.
+else but vCard data. Do not remind me what I asked you
+for. Do not apologize. Do not self-reference.
 
 For example, if I give you this:
 ```
