@@ -43,6 +43,7 @@ hypothesis = "*"
 mypy = "*"
 pytest = "*"
 pytest-cov = "*"
+ptpython = "*"
 
 [tool.poetry.dev-dependencies.isort]
 version = "*"
