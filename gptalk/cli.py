@@ -8,7 +8,7 @@ from requests_html import HTMLSession
 from bs4 import BeautifulSoup as bs
 
 from .talk import talk
-from .utils import is_url
+from .utils import is_url, fetch_url, summarize
 from . import prompts
 
 deal.activate()
@@ -70,13 +70,8 @@ def tldr() -> NoReturn:
     """Provide a tl;dr on a stream."""
     stdin = sys.stdin.read().strip()
     if is_url(stdin):
-        requests = HTMLSession()
-
-        response = requests.get(url=stdin, timeout=10)
-        response.html.render()
-
-        soup = bs(response.content, "lxml")
-        data = soup.get_text()
+        if response := fetch_url(stdin):
+            data = "\n----\n".join(summarize(response.content.decode()))
     else:
         data = stdin
 
