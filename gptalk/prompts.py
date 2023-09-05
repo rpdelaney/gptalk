@@ -1,4 +1,5 @@
 # flake8: noqa
+# vim: foldmethod=marker foldlevel=0
 __all__ = [
     "adr",
     "outline",
