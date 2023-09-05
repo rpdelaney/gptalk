@@ -34,6 +34,17 @@ def outline() -> NoReturn:
 
 @deal.has("io", "global", "stderr", "stdout")
 @cli.command()
+def ticket() -> NoReturn:
+    """Create a task ticket using a basic WHAT/WHY/AC format."""
+    stdin = sys.stdin.read().strip()
+
+    talk(prompt=prompts.ticket, data=stdin)
+
+    sys.exit(0)
+
+
+@deal.has("io", "global", "stderr", "stdout")
+@cli.command()
 def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
     stdin = sys.stdin.read().strip()
