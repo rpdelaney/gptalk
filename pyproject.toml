@@ -44,6 +44,8 @@ mypy = "*"
 pytest = "*"
 pytest-cov = "*"
 ptpython = "*"
+types-beautifulsoup4 = "*"
+types-requests = "*"
 
 [tool.poetry.dev-dependencies.isort]
 version = "*"
