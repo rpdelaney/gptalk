@@ -51,3 +51,24 @@ def vcard() -> NoReturn:
     talk(prompt=prompts.vcard, data=data)
 
     sys.exit(0)
+
+
+@deal.has("io", "global", "stderr", "stdout")
+@cli.command()
+def tldr() -> NoReturn:
+    """Provide a tl;dr on a stream."""
+    stdin = sys.stdin.read().strip()
+    if is_url(stdin):
+        requests = HTMLSession()
+
+        response = requests.get(url=stdin, timeout=10)
+        response.html.render()
+
+        soup = bs(response.content, "lxml")
+        data = soup.get_text()
+    else:
+        data = stdin
+
+    talk(prompt=prompts.tldr, data=data)
+
+    sys.exit(0)
