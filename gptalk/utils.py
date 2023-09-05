@@ -23,8 +23,8 @@ def summarize(content: str) -> Tuple[str, str]:
     """Take content and use readability to return a document summary."""
     doc = Document(content)
 
-    title = doc.title()
-    summary = bs(doc.summary(), "lxml")
+    title: str = doc.short_title()
+    summary: str = bs(doc.summary(), "lxml").text
 
     return (title, summary)
 
