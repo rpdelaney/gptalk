@@ -1,7 +1,19 @@
+"""Utility functions and helpers."""
 import re
+from typing import Tuple
 
-from bs4 import BeautifulSoup, Comment
-from typing import Optional
+from readability import Document
+from bs4 import BeautifulSoup as bs
+
+
+def summarize(content: str) -> Tuple[str, str]:
+    """Take content and use readability to return a document summary."""
+    doc = Document(content)
+
+    title = doc.title()
+    summary = bs(doc.summary(), "lxml")
+
+    return (title, summary)
 
 
 def is_url(s: str) -> bool:
