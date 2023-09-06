@@ -27,7 +27,7 @@ def outline() -> NoReturn:
     """Generate MECE outline of an arbitrary topic."""
     stdin = sys.stdin.read().strip()
 
-    talk(prompt=prompts.outline, data=stdin)
+    talk(prompt_system=prompts.outline, data_user=stdin)
 
     sys.exit(0)
 
@@ -38,7 +38,7 @@ def ticket() -> NoReturn:
     """Create a task ticket using a basic WHAT/WHY/AC format."""
     stdin = sys.stdin.read().strip()
 
-    talk(prompt=prompts.ticket, data=stdin)
+    talk(prompt_system=prompts.ticket, data_user=stdin)
 
     sys.exit(0)
 
@@ -59,7 +59,7 @@ def vcard() -> NoReturn:
     else:
         data = stdin
 
-    talk(prompt=prompts.vcard, data=data)
+    talk(prompt_system=prompts.vcard, data_user=data)
 
     sys.exit(0)
 
@@ -75,7 +75,7 @@ def tldr() -> NoReturn:
     else:
         data = stdin
 
-    talk(prompt=prompts.tldr, data=data)
+    talk(prompt_system=prompts.tldr, data_user=data)
 
     sys.exit(0)
 
@@ -86,6 +86,6 @@ def howdoi() -> NoReturn:
     """Like `howdoi` but ChatGPT instead of StackOverflow."""
     data = sys.stdin.read().strip()
 
-    talk(prompt=prompts.howdoi, data=data)
+    talk(prompt_system=prompts.howdoi, data_user=data)
 
     sys.exit(0)

@@ -4,7 +4,11 @@ import sys
 import openai
 
 
-def talk(prompt: str, data: str, model: str = "gpt-3.5-turbo") -> None:
+def talk(
+    prompt_system: str,
+    data_user: str,
+    model: str = "gpt-3.5-turbo",
+) -> None:
     """Talk to ChatGPT."""
     start_time = time()
     request = {
@@ -13,11 +17,11 @@ def talk(prompt: str, data: str, model: str = "gpt-3.5-turbo") -> None:
         "messages": [
             {
                 "role": "system",
-                "content": prompt,
+                "content": prompt_system,
             },
             {
                 "role": "user",
-                "content": str(data),
+                "content": str(data_user),
             },
         ],
     }
