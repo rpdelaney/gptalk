@@ -9,7 +9,16 @@ def talk(
     data_user: str,
     model: str = "gpt-3.5-turbo",
 ) -> None:
-    """Talk to ChatGPT."""
+    """Initiate a conversation with the specified model.
+
+    :param prompt_system: The system prompt to initiate the conversation.
+    :param data_user: The input data from the user for the system prompt
+    to act on.
+    :param model: The model to be used for the conversation, default is
+    "gpt-3.5-turbo".
+
+    :return: None
+    """
     start_time = time()
     request = {
         "temperature": 0,
