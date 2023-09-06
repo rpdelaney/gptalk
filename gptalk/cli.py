@@ -78,3 +78,14 @@ def tldr() -> NoReturn:
     talk(prompt=prompts.tldr, data=data)
 
     sys.exit(0)
+
+
+@deal.has("io", "global", "stderr", "stdout")
+@cli.command()
+def howdoi() -> NoReturn:
+    """Like `howdoi` but ChatGPT instead of StackOverflow."""
+    data = sys.stdin.read().strip()
+
+    talk(prompt=prompts.howdoi, data=data)
+
+    sys.exit(0)
