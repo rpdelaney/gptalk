@@ -2,6 +2,7 @@ from time import time
 import sys
 
 import openai
+from openai.openai_object import OpenAIObject
 
 
 def talk(
@@ -39,7 +40,7 @@ def talk(
         f"Sending request:\n{request}",
         file=sys.stderr,
     )
-    response = openai.ChatCompletion.create(**request)
+    response: OpenAIObject = openai.ChatCompletion.create(**request)
 
     response_time = time() - start_time
     print(
