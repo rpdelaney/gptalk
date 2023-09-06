@@ -6,6 +6,7 @@ __all__ = [
     "subsfix",
     "ticket",
     "vcard",
+    "tldr",
 ]
 
 # ADR {{{1
