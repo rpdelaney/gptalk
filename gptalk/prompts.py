@@ -91,7 +91,7 @@ representation technique. Generate the output in markdown format. Please
 don't write the article, only the outline for writers. Do not remind me
 what I asked you for. Do not apologize. Do not self-reference."""
 # 1}}}
-# Subsfix {{{1
+# subsfix {{{1
 subsfix = """You are a captioner for movies and videos. Subtitles have been written by an
 speech to text algorithm and contain mistakes. You will read subtitles
 and reply with corrections.
@@ -133,11 +133,6 @@ myself. I've worked on everything from 100,000-volt laser systems to
 satellites, and even spent time in Antarctica working on rockets.
 ```
 Do not remind me what I asked you for. Do not apologize. Do not self-reference.
-
-Now, here is the text I want you to fix:
-```
-{userdata}
-```
 """
 # 1}}}
 # Ticket {{{1

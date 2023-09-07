@@ -43,7 +43,7 @@ def talk(
         ],
     }
 
-    print("Sending request...")
+    print("Sending request...", file=sys.stderr)
     debug(f"{request}")
 
     response: OpenAIObject = openai.ChatCompletion.create(**request)
