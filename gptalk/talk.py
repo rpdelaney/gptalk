@@ -1,8 +1,15 @@
 from time import time
+import os
 import sys
 
 import openai
 from openai.openai_object import OpenAIObject
+
+
+def debug(msg: str, file=sys.stderr) -> None:
+    """Print a debug message if $DEBUG is set."""
+    if os.getenv("DEBUG"):
+        print(msg)
 
 
 def talk(
@@ -36,18 +43,17 @@ def talk(
         ],
     }
 
-    print(
-        f"Sending request:\n{request}",
-        file=sys.stderr,
-    )
+    print("Sending request...")
+    debug(f"{request}")
+
     response: OpenAIObject = openai.ChatCompletion.create(**request)
 
     response_time = time() - start_time
-    print(
+    debug(
         f"Full response received:\n{response}",
         file=sys.stderr,
     )
-    print(
+    debug(
         f"Full response received {response_time:.2f} seconds after request",
         file=sys.stderr,
     )
