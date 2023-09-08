@@ -3,7 +3,7 @@ import re
 from typing import Tuple
 
 from requests_html import HTMLSession
-from requests.core import Response
+from requests import Response
 from readability import Document
 from bs4 import BeautifulSoup as bs
 
