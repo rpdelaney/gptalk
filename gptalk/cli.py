@@ -89,3 +89,14 @@ def howdoi() -> NoReturn:
     talk(prompt_system=prompts.howdoi, data_user=data)
 
     sys.exit(0)
+
+
+@deal.has("io", "global", "stderr", "stdout")
+@cli.command()
+def subsfix() -> NoReturn:
+    """Fix subtitles generated with speech to text."""
+    data = sys.stdin.read().strip()
+
+    talk(prompt_system=prompts.subsfix, data_user=data)
+
+    sys.exit(0)
