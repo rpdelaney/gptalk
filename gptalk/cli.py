@@ -35,8 +35,8 @@ def cli() -> None:
 @cli.command()
 def outline() -> NoReturn:
     """Generate MECE outline of an arbitrary topic."""
-    stdin = _get_input("Please provide input:")
-    talk(prompt_system=prompts.outline, data_user=stdin)
+    input_user = _get_input("Please provide input:")
+    talk(prompt_system=prompts.outline, data_user=input_user)
     sys.exit(0)
 
 
@@ -44,9 +44,9 @@ def outline() -> NoReturn:
 @cli.command()
 def ticket() -> NoReturn:
     """Create a task ticket using a basic WHAT/WHY/AC format."""
-    stdin = _get_input("Please provide input:")
+    input_user = _get_input("Please provide input:")
 
-    talk(prompt_system=prompts.ticket, data_user=stdin)
+    talk(prompt_system=prompts.ticket, data_user=input_user)
 
     sys.exit(0)
 
@@ -55,15 +55,15 @@ def ticket() -> NoReturn:
 @cli.command()
 def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
-    stdin = _get_input("Please provide input:")
-    if is_url(stdin):
+    input_user = _get_input("Please provide input:")
+    if is_url(input_user):
         requests = HTMLSession()
-        response = requests.get(url=stdin, timeout=10)
+        response = requests.get(url=input_user, timeout=10)
         response.html.render()
         soup = bs(response.content, "lxml")
         data = soup.get_text()
     else:
-        data = stdin
+        data = input_user
 
     talk(prompt_system=prompts.vcard, data_user=data)
 
@@ -74,12 +74,12 @@ def vcard() -> NoReturn:
 @cli.command()
 def tldr() -> NoReturn:
     """Provide a tl;dr on a stream."""
-    stdin = _get_input("Please provide input:")
-    if is_url(stdin):
-        if response := fetch_url(stdin):
+    input_user = _get_input("Please provide input:")
+    if is_url(input_user):
+        if response := fetch_url(input_user):
             data = "\n----\n".join(summarize(response.content.decode()))
     else:
-        data = stdin
+        data = input_user
 
     talk(prompt_system=prompts.tldr, data_user=data)
 
