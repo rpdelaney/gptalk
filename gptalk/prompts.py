@@ -81,10 +81,11 @@ First, you will introduce yourself, and prompt me to supply information
 you feel is necessary to make a first draft from the template.
 """
 # 1}}}
-# Outline {{{1
-outline = """Please ignore all previous instructions. Using the MECE framework, please
-create a detailed long-form content outline for our English writers on the
-topic: "{userdata}". Also, provide a short and attention-grabbing
+# outline {{{1
+outline = """
+Please ignore all previous instructions. Using the MECE framework,
+create a detailed long-form content outline for our English writers.
+Also, provide a short and attention-grabbing
 title for the article and an estimate of the word count for each
 subheading. Include a list of semantically similar FAQs using the vector
 representation technique. Generate the output in markdown format. Please
@@ -239,10 +240,6 @@ Addressing these deprecation warnings is necessary to ensure that our infrastruc
 - The Terraform plan runs without any deprecation warnings.
 ```
 ---
-Now, here's the data for the ticket I want you to generate:
-```
-{userdata}
-```
 """
 # 1}}}
 # vcard {{{1
@@ -318,10 +315,6 @@ ADR;TYPE=WORK:;;123 Maple St;Faketown;ME;98765;United States
 NOTE:Hours: Sun 9:00 AM–5 PM, Mon 9:00 AM–7 PM, Tue 9:00 AM–7 PM, Wed 9:00 AM–7 PM, Thu 9:00 AM–7 PM, Fri 9:00 AM–7 PM, Sat 9:00 AM–5 PM
 END:VCARD
 ---
-Now, here's the data for the first vcard I want you to generate:
-```
-{userdata}
-```
 """
 # 1}}}
 # tldr {{{1
@@ -329,10 +322,6 @@ tldr = """Ignore all previous instructions. I want you to respond only in
 English. You are a very proficient researcher. Your task is to extract all
 facts and summarize the text I give you in all relevant aspects in a few
 bulletpoints and a 1-liner summary. All output shall be in English.
-The text to extract facts from and summarize is this:
-```
-{userdata}
-```
 """
 # 1}}}
 # howdoi {{{1
