@@ -57,11 +57,7 @@ def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
     input_user = _get_input("Please provide input:")
     if is_url(input_user):
-        requests = HTMLSession()
-        response = requests.get(url=input_user, timeout=10)
-        response.html.render()
-        soup = bs(response.content, "lxml")
-        data = soup.get_text()
+        data = summarize(fetch_url(input_user))
     else:
         data = input_user
 
