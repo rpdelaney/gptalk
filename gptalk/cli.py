@@ -6,12 +6,22 @@ import click
 import deal
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup as bs
+from inquirer import prompt, Text
 
 from .talk import talk
 from .utils import is_url, fetch_url, summarize
 from . import prompts
 
 deal.activate()
+
+
+def _get_input(prompt_message: str) -> str:
+    if sys.stdin.isatty():
+        questions = [Text("input", message=prompt_message)]
+        answers = prompt(questions)
+        return "".join(answers["input"])
+    else:
+        return sys.stdin.read().strip()
 
 
 @click.group()
@@ -25,10 +35,8 @@ def cli() -> None:
 @cli.command()
 def outline() -> NoReturn:
     """Generate MECE outline of an arbitrary topic."""
-    stdin = sys.stdin.read().strip()
-
+    stdin = _get_input("Please provide input:")
     talk(prompt_system=prompts.outline, data_user=stdin)
-
     sys.exit(0)
 
 
@@ -36,7 +44,7 @@ def outline() -> NoReturn:
 @cli.command()
 def ticket() -> NoReturn:
     """Create a task ticket using a basic WHAT/WHY/AC format."""
-    stdin = sys.stdin.read().strip()
+    stdin = _get_input("Please provide input:")
 
     talk(prompt_system=prompts.ticket, data_user=stdin)
 
@@ -47,13 +55,11 @@ def ticket() -> NoReturn:
 @cli.command()
 def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
-    stdin = sys.stdin.read().strip()
+    stdin = _get_input("Please provide input:")
     if is_url(stdin):
         requests = HTMLSession()
-
         response = requests.get(url=stdin, timeout=10)
         response.html.render()
-
         soup = bs(response.content, "lxml")
         data = soup.get_text()
     else:
@@ -68,7 +74,7 @@ def vcard() -> NoReturn:
 @cli.command()
 def tldr() -> NoReturn:
     """Provide a tl;dr on a stream."""
-    stdin = sys.stdin.read().strip()
+    stdin = _get_input("Please provide input:")
     if is_url(stdin):
         if response := fetch_url(stdin):
             data = "\n----\n".join(summarize(response.content.decode()))
@@ -84,7 +90,7 @@ def tldr() -> NoReturn:
 @cli.command()
 def howdoi() -> NoReturn:
     """Like `howdoi` but ChatGPT instead of StackOverflow."""
-    data = sys.stdin.read().strip()
+    data = _get_input("Please provide input:")
 
     talk(prompt_system=prompts.howdoi, data_user=data)
 
@@ -95,7 +101,7 @@ def howdoi() -> NoReturn:
 @cli.command()
 def subsfix() -> NoReturn:
     """Fix subtitles generated with speech to text."""
-    data = sys.stdin.read().strip()
+    data = _get_input("Please provide input:")
 
     talk(prompt_system=prompts.subsfix, data_user=data)
 
