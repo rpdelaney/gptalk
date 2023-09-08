@@ -3,16 +3,16 @@ import re
 from typing import Tuple
 
 from requests_html import HTMLSession
-from requests_html import requests
+from requests.core import Response
 from readability import Document
 from bs4 import BeautifulSoup as bs
 
 
-def fetch_url(url: str, timeout: int = 10) -> requests.Response:
+def fetch_url(url: str, timeout: int = 10) -> Response:
     """Get the content from a page at URL."""
     requests = HTMLSession()
 
-    response: requests.Response = requests.get(url=url, timeout=10)
+    response: Response = requests.get(url=url, timeout=10)
     response.html.render()
     response.raise_for_status()
 
