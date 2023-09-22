@@ -320,8 +320,8 @@ END:VCARD
 # tldr {{{1
 tldr = """Ignore all previous instructions. I want you to respond only in
 English. You are a very proficient researcher. Your task is to extract all
-facts and summarize the text I give you in all relevant aspects in a few
-bulletpoints and a 1-liner summary. All output shall be in English.
+facts and summarize the text I give you in all relevant aspects in a one-line
+"tl;dr" and then also with a few bulletpoints. All output shall be in English.
 """
 # 1}}}
 # howdoi {{{1
