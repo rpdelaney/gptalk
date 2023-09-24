@@ -57,7 +57,8 @@ def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
     input_user = _get_input("Please provide input:")
     if is_url(input_user):
-        data = summarize(fetch_url(input_user))
+        if response := fetch_url(input_user):
+            data = "\n----\n".join(summarize(response.content.decode()))
     else:
         data = input_user
 
