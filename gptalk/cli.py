@@ -19,9 +19,11 @@ def _get_input(prompt_message: str) -> str:
     if sys.stdin.isatty():
         questions = [Editor("long_text", message=prompt_message)]
         answers = prompt(questions)
-        return "".join(answers["input"])
+        result = "".join(answers["input"])
     else:
-        return sys.stdin.read().strip()
+        result = sys.stdin.read().strip()
+
+    return result if result else ""
 
 
 @click.group()
