@@ -5,7 +5,6 @@ from typing import NoReturn
 import click
 import deal
 from requests_html import HTMLSession
-from bs4 import BeautifulSoup as bs
 from inquirer import prompt, Editor
 
 from .talk import talk
