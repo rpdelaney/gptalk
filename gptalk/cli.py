@@ -6,7 +6,7 @@ import click
 import deal
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup as bs
-from inquirer import prompt, Text
+from inquirer import prompt, Editor
 
 from .talk import talk
 from .utils import is_url, fetch_url, summarize
@@ -17,7 +17,7 @@ deal.activate()
 
 def _get_input(prompt_message: str) -> str:
     if sys.stdin.isatty():
-        questions = [Text("input", message=prompt_message)]
+        questions = [Editor("long_text", message=prompt_message)]
         answers = prompt(questions)
         return "".join(answers["input"])
     else:
