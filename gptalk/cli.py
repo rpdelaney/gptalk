@@ -9,6 +9,7 @@ from inquirer import prompt, Editor
 
 from .talk import talk
 from .utils import is_url, fetch_url, summarize
+from .exceptions import GPTNullInputError
 from . import prompts
 
 deal.activate()
@@ -18,11 +19,14 @@ def _get_input(prompt_message: str) -> str:
     if sys.stdin.isatty():
         questions = [Editor("long_text", message=prompt_message)]
         answers = prompt(questions)
-        result = "".join(answers["input"])
+        result = "".join(answers.get("input", "")).strip()
     else:
         result = sys.stdin.read().strip()
 
-    return result if result else ""
+    if len(result) > 0:
+        return result
+    else:
+        raise GPTNullInputError("User input was zero-length. Aborting.")
 
 
 @click.group()
