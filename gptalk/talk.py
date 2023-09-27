@@ -15,7 +15,7 @@ def debug(msg: str, file=sys.stderr) -> None:
 def talk(
     prompt_system: str,
     data_user: str,
-    model: str = "gpt-3.5-turbo",
+    model: str = "gpt-3.5-turbo-16k",
 ) -> None:
     """Initiate a conversation with the specified model.
 
