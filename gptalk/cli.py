@@ -5,11 +5,11 @@ from typing import NoReturn
 import click
 import deal
 from requests_html import HTMLSession
-from bs4 import BeautifulSoup as bs
-from inquirer import prompt, Text
+from inquirer import prompt, Editor
 
 from .talk import talk
 from .utils import is_url, fetch_url, summarize
+from .exceptions import GPTNullInputError
 from . import prompts
 
 deal.activate()
@@ -17,11 +17,15 @@ deal.activate()
 
 def _get_input(prompt_message: str) -> str:
     if sys.stdin.isatty():
-        questions = [Text("input", message=prompt_message)]
+        questions = [Editor("long_text", message=prompt_message)]
         answers = prompt(questions)
-        return "".join(answers["input"])
+        result = "".join(answers.get("long_text", "")).strip()
     else:
-        return sys.stdin.read().strip()
+        result = sys.stdin.read().strip()
+    if len(result) > 0:
+        return result
+    else:
+        raise GPTNullInputError("User input was zero-length. Aborting.")
 
 
 @click.group()
