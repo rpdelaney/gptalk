@@ -4,11 +4,13 @@
 import sys
 
 import tiktoken
+import deal
 from tiktoken.core import Encoding
 
 _DEFAULT_ENCODING: Encoding = tiktoken.get_encoding("cl100k_base")
 
 
+@deal.pure
 def token_split(
     text: str,
     limit: int,
@@ -55,6 +57,7 @@ def token_split(
     return text_parts
 
 
+@deal.pure
 def get_token_count(text: str, encoding: Encoding = _DEFAULT_ENCODING) -> int:
     """Get the number of tokens in the input string using tiktoken library.
 
@@ -71,6 +74,8 @@ def get_token_count(text: str, encoding: Encoding = _DEFAULT_ENCODING) -> int:
     return len(tokens)
 
 
+@deal.has('io', 'read', 'stdout')
+@deal.safe
 def main() -> None:
     """Give example usage."""
     limit = int(sys.argv[1])
