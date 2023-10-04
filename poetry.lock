@@ -156,6 +156,17 @@ files = [
 ]
 
 [[package]]
+name = "astroid"
+version = "3.0.0"
+description = "An abstract syntax tree for Python with inference support."
+optional = false
+python-versions = ">=3.8.0"
+files = [
+    {file = "astroid-3.0.0-py3-none-any.whl", hash = "sha256:f2510e7fdcd6cfda4ec50014726d4857abf79acfc010084ce8c26091913f1b25"},
+    {file = "astroid-3.0.0.tar.gz", hash = "sha256:1defdbca052635dd29657ea674edfc45e4b5be9cd53630c5b084fcfed94344a8"},
+]
+
+[[package]]
 name = "async-timeout"
 version = "4.0.3"
 description = "Timeout context manager for asyncio programs"
@@ -521,6 +532,25 @@ docs = ["m2r2", "myst-parser", "sphinx (==3.5.*)", "sphinx-rtd-theme (==0.5.*)"]
 integration = ["astroid (>=2.11.0)", "deal-solver", "flake8", "hypothesis", "marshmallow", "pygments", "sphinx (>=4.5.0)", "typeguard (<4.0.0)", "vaa (>=0.2.1)"]
 lint = ["deal-solver", "flake8", "flake8-commas", "flake8-quotes", "hypothesis", "isort", "mypy (>=0.900)", "mypy_test (>=0.1.1)", "pygments", "typeguard (<4.0.0)", "unify"]
 test = ["coverage-conditional-plugin", "coverage[toml]", "docstring-parser", "pytest", "pytest-cov", "urllib3"]
+
+[[package]]
+name = "deal-solver"
+version = "0.1.2"
+description = "z3-powered solver (theorem prover) for deal."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "deal_solver-0.1.2-py3-none-any.whl", hash = "sha256:0d657a28368acd416f4031d3f42a86cc7db1b6ce3c08621e9895c6f41a85f3ec"},
+    {file = "deal_solver-0.1.2.tar.gz", hash = "sha256:7feac330346fd28f41b04ad62da9b1f1419aa7d9e37eaa4e5098de9ff2d5d66f"},
+]
+
+[package.dependencies]
+astroid = "*"
+z3-solver = "*"
+
+[package.extras]
+lint = ["flake8", "flake8-bugbear", "flake8-commas", "flake8-quotes", "isort", "mypy (>=0.910)", "unify"]
+test = ["hypothesis", "pytest", "pytest-cov", "pytest-xdist"]
 
 [[package]]
 name = "fake-useragent"
@@ -2144,6 +2174,21 @@ idna = ">=2.0"
 multidict = ">=4.0"
 
 [[package]]
+name = "z3-solver"
+version = "4.12.2.0"
+description = "an efficient SMT solver library"
+optional = false
+python-versions = "*"
+files = [
+    {file = "z3-solver-4.12.2.0.tar.gz", hash = "sha256:65ab47a0a8ef0bfb80db0670775beb11b32c3c0ae4b35943e44121f4af7ef411"},
+    {file = "z3_solver-4.12.2.0-py2.py3-none-macosx_10_16_x86_64.whl", hash = "sha256:127b7c3fcadd61415320ef1b469c22464d3270d25a63c9eb5ee31a0859910826"},
+    {file = "z3_solver-4.12.2.0-py2.py3-none-macosx_11_0_arm64.whl", hash = "sha256:f605de84f87cff04de8339a6d007c80167606a4e6904d6ace8208b066f22f4be"},
+    {file = "z3_solver-4.12.2.0-py2.py3-none-manylinux2014_x86_64.whl", hash = "sha256:03921d3021cb6e5dbeaeb94634132a5fbf5403748aa21774efac4047e633af1e"},
+    {file = "z3_solver-4.12.2.0-py2.py3-none-win32.whl", hash = "sha256:ea1688e64aada67ec720e2f148c5c41fece2870c55a2901dda36f6b4bb9aec7e"},
+    {file = "z3_solver-4.12.2.0-py2.py3-none-win_amd64.whl", hash = "sha256:553af6a989d8943d9a556c4f83ea54b2afc8b4fd58230e97fcc526dc3f97249a"},
+]
+
+[[package]]
 name = "zipp"
 version = "3.16.2"
 description = "Backport of pathlib-compatible object wrapper for zip files"
@@ -2161,4 +2206,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11, <4.0"
-content-hash = "55745334b45910d6a3d7251542cc328af24d5a2bd1a62cfa7872cc00df16218f"
+content-hash = "1e8dfeecdaa7a6d594ea791976196e18983d50561d3363dbf41588065c9467f5"

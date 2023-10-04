@@ -50,6 +50,7 @@ ptpython = "*"
 types-beautifulsoup4 = "*"
 types-requests = "*"
 types-regex = "*"
+deal-solver = "*"
 
 [tool.poetry.dev-dependencies.isort]
 version = "*"
