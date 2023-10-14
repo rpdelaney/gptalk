@@ -8,7 +8,6 @@ from readability import Document
 from bs4 import BeautifulSoup as bs
 
 
-@deal.pure
 def fetch_url(url: str, timeout: int = 10) -> Response:
     """Get the content from a page at URL."""
     requests = HTMLSession()
@@ -20,8 +19,6 @@ def fetch_url(url: str, timeout: int = 10) -> Response:
     return response
 
 
-@deal.has('import')
-@deal.safe
 def summarize(content: str) -> Tuple[str, str]:
     """Take content and use readability to return a document summary."""
     doc = Document(content)
@@ -32,7 +29,6 @@ def summarize(content: str) -> Tuple[str, str]:
     return (title, summary)
 
 
-@deal.pure
 def is_url(s: str) -> bool:
     """Determine if a given string is a URL.
 

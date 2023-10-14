@@ -15,8 +15,6 @@ from . import prompts
 deal.activate()
 
 
-@deal.has('stdin', 'stdout')
-@deal.raises(GPTNullInputError)
 def _get_input(prompt_message: str) -> str:
     if sys.stdin.isatty():
         questions = [Editor("long_text", message=prompt_message)]
@@ -30,16 +28,12 @@ def _get_input(prompt_message: str) -> str:
         raise GPTNullInputError("User input was zero-length. Aborting.")
 
 
-@deal.safe
 @click.group()
 @click.version_option()
-@deal.has("io")
 def cli() -> None:
     """Do some stuff with ChatGPT."""
 
 
-@deal.raises(GPTNullInputError, SystemExit)
-@deal.has("io", "global", "stderr", "stdout")
 @cli.command()
 def outline() -> NoReturn:
     """Generate MECE outline of an arbitrary topic."""
@@ -48,8 +42,6 @@ def outline() -> NoReturn:
     sys.exit(0)
 
 
-@deal.raises(GPTNullInputError, SystemExit)
-@deal.has("io", "global", "stderr", "stdout")
 @cli.command()
 def ticket() -> NoReturn:
     """Create a task ticket using a basic WHAT/WHY/AC format."""
@@ -60,8 +52,6 @@ def ticket() -> NoReturn:
     sys.exit(0)
 
 
-@deal.raises(GPTNullInputError, SystemExit)
-@deal.has("io", "global", "stderr", "stdout")
 @cli.command()
 def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
@@ -77,8 +67,6 @@ def vcard() -> NoReturn:
     sys.exit(0)
 
 
-@deal.raises(GPTNullInputError, SystemExit)
-@deal.has("io", "global", "stderr", "stdout")
 @cli.command()
 def tldr() -> NoReturn:
     """Provide a tl;dr on a stream."""
@@ -94,8 +82,6 @@ def tldr() -> NoReturn:
     sys.exit(0)
 
 
-@deal.raises(GPTNullInputError, SystemExit)
-@deal.has("io", "global", "stderr", "stdout")
 @cli.command()
 def howdoi() -> NoReturn:
     """Like `howdoi` but ChatGPT instead of StackOverflow."""
@@ -106,8 +92,6 @@ def howdoi() -> NoReturn:
     sys.exit(0)
 
 
-@deal.raises(GPTNullInputError, SystemExit)
-@deal.has("io", "global", "stderr", "stdout")
 @cli.command()
 def subsfix() -> NoReturn:
     """Fix subtitles generated with speech to text."""

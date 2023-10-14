@@ -7,16 +7,12 @@ import deal
 from openai.openai_object import OpenAIObject
 
 
-@deal.has('io', 'stdout')
-@deal.safe
 def debug(msg: str, file=sys.stderr) -> None:
     """Print a debug message if $DEBUG is set."""
     if os.getenv("DEBUG"):
         print(msg)
 
 
-@deal.has('io', 'stderr', 'stdout', 'time')
-@deal.safe
 def talk(
     prompt_system: str,
     data_user: str,
