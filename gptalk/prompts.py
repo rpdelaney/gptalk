@@ -291,9 +291,8 @@ Urgent care center
 
 Faketown Express Walk-in Clinic is located in downtown Faketown, Maine. We accept all major insurance. We have low waiting times and our staff state is licensed and genuinely friendly. When you are here, we treat you like family. Our School/Sports Physicals are only $30 bucks.
 
-Address: 123 Maple St, Faketown, ME, 98765, United States
-
-Phone: +1 555 123 4567 | Facebook
+123 Maple St, Faketown, ME, 98765, United States
++1 555 123 4567 | Facebook
 
 Hours:
 Sun 9:00 AM–5 PM
