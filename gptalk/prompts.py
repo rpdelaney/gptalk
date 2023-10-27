@@ -308,7 +308,7 @@ You would reply with:
 ---
 BEGIN:VCARD
 VERSION:3.0
-ORG:Faketown Express Walk-in Clinic;
+ORG:Faketown Express Walk-in Clinic
 TITLE:Urgent Care Center
 TEL;TYPE=WORK,VOICE:+1 555-123-4567
 ADR;TYPE=WORK:;;123 Maple St;Faketown;ME;98765;United States
