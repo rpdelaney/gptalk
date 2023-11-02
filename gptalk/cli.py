@@ -47,7 +47,7 @@ def ticket() -> NoReturn:
     """Create a task ticket using a basic WHAT/WHY/AC format."""
     input_user = _get_input()
 
-    talk(prompt_system=prompts.ticket, data_user=input_user)
+    talk(prompt_system=prompts.ticket, data_user=input_user, model="gpt-4")
 
     sys.exit(0)
 
@@ -87,7 +87,7 @@ def howdoi() -> NoReturn:
     """Like `howdoi` but ChatGPT instead of StackOverflow."""
     data = _get_input()
 
-    talk(prompt_system=prompts.howdoi, data_user=data)
+    talk(prompt_system=prompts.howdoi, data_user=data, model="gpt-4")
 
     sys.exit(0)
 
