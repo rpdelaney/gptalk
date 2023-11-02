@@ -15,7 +15,7 @@ from . import prompts
 deal.activate()
 
 
-def _get_input(prompt_message: str) -> str:
+def _get_input(prompt_message: str = "") -> str:
     if sys.stdin.isatty():
         questions = [Editor("long_text", message=prompt_message)]
         answers = prompt(questions)
@@ -37,7 +37,7 @@ def cli() -> None:
 @cli.command()
 def outline() -> NoReturn:
     """Generate MECE outline of an arbitrary topic."""
-    input_user = _get_input("Please provide input:")
+    input_user = _get_input()
     talk(prompt_system=prompts.outline, data_user=input_user)
     sys.exit(0)
 
@@ -45,7 +45,7 @@ def outline() -> NoReturn:
 @cli.command()
 def ticket() -> NoReturn:
     """Create a task ticket using a basic WHAT/WHY/AC format."""
-    input_user = _get_input("Please provide input:")
+    input_user = _get_input()
 
     talk(prompt_system=prompts.ticket, data_user=input_user)
 
@@ -55,7 +55,7 @@ def ticket() -> NoReturn:
 @cli.command()
 def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
-    input_user = _get_input("Please provide input:")
+    input_user = _get_input()
     if is_url(input_user):
         if response := fetch_url(input_user):
             data = "\n----\n".join(summarize(response.content.decode()))
@@ -70,7 +70,7 @@ def vcard() -> NoReturn:
 @cli.command()
 def tldr() -> NoReturn:
     """Provide a tl;dr on a stream."""
-    input_user = _get_input("Please provide input:")
+    input_user = _get_input()
     if is_url(input_user):
         if response := fetch_url(input_user):
             data = "\n----\n".join(summarize(response.content.decode()))
@@ -85,7 +85,7 @@ def tldr() -> NoReturn:
 @cli.command()
 def howdoi() -> NoReturn:
     """Like `howdoi` but ChatGPT instead of StackOverflow."""
-    data = _get_input("Please provide input:")
+    data = _get_input()
 
     talk(prompt_system=prompts.howdoi, data_user=data)
 
@@ -95,7 +95,7 @@ def howdoi() -> NoReturn:
 @cli.command()
 def subsfix() -> NoReturn:
     """Fix subtitles generated with speech to text."""
-    data = _get_input("Please provide input:")
+    data = _get_input()
 
     talk(prompt_system=prompts.subsfix, data_user=data)
 
