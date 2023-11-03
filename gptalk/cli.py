@@ -38,7 +38,7 @@ def cli() -> None:
 def outline() -> NoReturn:
     """Generate MECE outline of an arbitrary topic."""
     input_user = _get_input()
-    talk(prompt_system=prompts.outline, data_user=input_user)
+    talk(prompt_system=prompts.outline, data_user=input_user, model="gpt-4")
     sys.exit(0)
 
 
