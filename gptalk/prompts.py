@@ -249,6 +249,8 @@ that includes contact information, extracting
 the contact information and respond with data
 suitable to be imported into a vcard file
 according to the specifications in RFC2426.
+Hours of operation and geolocation data
+go in the `NOTES` field.
 
 No matter what, you will respond with NOTHING
 else but vCard data. Do not remind me what I asked you
