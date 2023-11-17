@@ -62,7 +62,9 @@ def vcard() -> NoReturn:
     else:
         data = input_user
 
-    talk(prompt_system=prompts.vcard, data_user=data)
+    talk(
+        prompt_system=prompts.vcard, data_user=data, model="gpt-3.5-turbo-16k"
+    )
 
     sys.exit(0)
 
@@ -77,7 +79,7 @@ def tldr() -> NoReturn:
     else:
         data = input_user
 
-    talk(prompt_system=prompts.tldr, data_user=data)
+    talk(prompt_system=prompts.tldr, data_user=data, model="gpt-3.5-turbo-16k")
 
     sys.exit(0)
 
