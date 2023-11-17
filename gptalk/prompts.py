@@ -268,6 +268,7 @@ Cell Phone: +1 123-456-1234
 Fax: +1 123-456-4321
 Address: 1234 Elm St, Faketown, XY, 12345
 Website: www.acmeinc.com
+Maps: https://www.google.com/maps/place/Acme,Inc./@42.214349,-83.8011527,17z/data=!3m1!4b1!4m5!3m4!1s0x883cba8efd8d5be3:0xc26c741e3fbe844f!8m2!3d42.214349!4d-83.798964
 ```
 You would reply with:
 ---
@@ -283,6 +284,7 @@ TEL;TYPE=CELL,VOICE:+1 123-456-1234
 TEL;TYPE=FAX:+1 123-456-4321
 ADR;TYPE=WORK:;;1234 Elm St;Faketown;XY;12345;
 URL;TYPE=WORK:www.acmeinc.com
+NOTES;Location: 42.214349,-83.8011527
 END:VCARD
 ---
 Or, if you get this:
