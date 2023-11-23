@@ -8,7 +8,7 @@ from requests_html import HTMLSession
 from inquirer import prompt, Editor
 
 from .talk import talk
-from .utils import is_url, fetch_url, summarize
+from .utils import is_url, fetch_url, summarize, extract_subtitles
 from .exceptions import GPTNullInputError
 from . import prompts
 
@@ -74,6 +74,8 @@ def tldr() -> NoReturn:
     """Provide a tl;dr on a stream."""
     input_user = _get_input()
     if is_url(input_user):
+        if "youtu" in input_user:
+            data = extract_subtitles(input_user)
         if response := fetch_url(input_user):
             data = "\n----\n".join(summarize(response.content.decode()))
     else:
