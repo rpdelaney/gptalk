@@ -23,8 +23,7 @@ def talk(
     :param prompt_system: The system prompt to initiate the conversation.
     :param data_user: The input data from the user for the system prompt
     to act on.
-    :param model: The model to be used for the conversation, default is
-    "gpt-3.5-turbo".
+    :param model: The model to be used for the conversation.
 
     :return: None
     """
