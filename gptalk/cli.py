@@ -76,7 +76,7 @@ def tldr() -> NoReturn:
     if is_url(input_user):
         if "youtu" in input_user:
             data = extract_subtitles(input_user)
-        if response := fetch_url(input_user):
+        elif response := fetch_url(input_user):
             data = "\n----\n".join(summarize(response.content.decode()))
     else:
         data = input_user
