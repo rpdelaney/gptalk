@@ -49,12 +49,6 @@ def talk(
     response: OpenAIObject = openai.ChatCompletion.create(**request)
 
     response_time = time() - start_time
-    debug(
-        f"Full response received:\n{response}",
-        file=sys.stderr,
-    )
-    debug(
-        f"Full response received {response_time:.2f} seconds after request",
-        file=sys.stderr,
-    )
+    debug(f"Full response received:\n{response}")
+    debug(f"Full response received {response_time:.2f} seconds after request")
     print(response.choices[0].message.content.strip())
