@@ -17,7 +17,7 @@ def talk(
     prompt_system: str,
     data_user: str,
     model: str = "gpt-3.5-turbo-16k",
-) -> None:
+) -> str:
     """Initiate a conversation with the specified model.
 
     :param prompt_system: The system prompt to initiate the conversation.
@@ -51,4 +51,4 @@ def talk(
     response_time = time() - start_time
     debug(f"Full response received:\n{response}")
     debug(f"Full response received {response_time:.2f} seconds after request")
-    print(response.choices[0].message.content.strip())
+    return str(response.choices[0].message.content.strip())

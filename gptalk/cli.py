@@ -38,7 +38,11 @@ def cli() -> None:
 def outline() -> NoReturn:
     """Generate MECE outline of an arbitrary topic."""
     input_user = _get_input()
-    talk(prompt_system=prompts.outline, data_user=input_user, model="gpt-4")
+    print(
+        talk(
+            prompt_system=prompts.outline, data_user=input_user, model="gpt-4"
+        )
+    )
     sys.exit(0)
 
 
@@ -47,7 +51,9 @@ def ticket() -> NoReturn:
     """Create a task ticket using a basic WHAT/WHY/AC format."""
     input_user = _get_input()
 
-    talk(prompt_system=prompts.ticket, data_user=input_user, model="gpt-4")
+    print(
+        talk(prompt_system=prompts.ticket, data_user=input_user, model="gpt-4")
+    )
 
     sys.exit(0)
 
@@ -62,8 +68,12 @@ def vcard() -> NoReturn:
     else:
         data = input_user
 
-    talk(
-        prompt_system=prompts.vcard, data_user=data, model="gpt-3.5-turbo-16k"
+    print(
+        talk(
+            prompt_system=prompts.vcard,
+            data_user=data,
+            model="gpt-3.5-turbo-16k",
+        )
     )
 
     sys.exit(0)
@@ -81,7 +91,13 @@ def tldr() -> NoReturn:
     else:
         data = input_user
 
-    talk(prompt_system=prompts.tldr, data_user=data, model="gpt-3.5-turbo-16k")
+    print(
+        talk(
+            prompt_system=prompts.tldr,
+            data_user=data,
+            model="gpt-3.5-turbo-16k",
+        )
+    )
 
     sys.exit(0)
 
@@ -91,7 +107,7 @@ def howdoi() -> NoReturn:
     """Like `howdoi` but ChatGPT instead of StackOverflow."""
     data = _get_input()
 
-    talk(prompt_system=prompts.howdoi, data_user=data, model="gpt-4")
+    print(talk(prompt_system=prompts.howdoi, data_user=data, model="gpt-4"))
 
     sys.exit(0)
 
@@ -101,6 +117,6 @@ def subsfix() -> NoReturn:
     """Fix subtitles generated with speech to text."""
     data = _get_input()
 
-    talk(prompt_system=prompts.subsfix, data_user=data)
+    print(talk(prompt_system=prompts.subsfix, data_user=data))
 
     sys.exit(0)
