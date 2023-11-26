@@ -11,6 +11,8 @@ from readability import Document
 from bs4 import BeautifulSoup as bs
 import yt_dlp
 
+from .exceptions import GPTSubsNotFoundError
+
 
 def fetch_url(url: str, timeout: int = 10) -> Response:
     """Get the content from a page at URL."""
@@ -114,7 +116,10 @@ def extract_subtitles(url: str) -> str:
         video_id = info_dict.get("id")
         subs_filename = os.path.join(temp_dir.name, f"{video_id}.en.vtt")
 
-    with open(subs_filename, "r", encoding="utf-8") as file:
-        subtitles = file.read()
+    try:
+        with open(subs_filename, "r", encoding="utf-8") as file:
+            subtitles = file.read()
+    except FileNotFoundError as fnfe:
+        raise GPTSubsNotFoundError("No subtitles found.") from fnfe
 
     return vtt2prose(subtitles)
