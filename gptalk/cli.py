@@ -10,6 +10,7 @@ from inquirer import prompt, Editor
 from .talk import talk
 from .utils import is_url, fetch_url, summarize, extract_subtitles
 from .exceptions import GPTNullInputError
+from .postprocessing import tldr_to_markdown
 from . import prompts
 
 deal.activate()
@@ -91,13 +92,14 @@ def tldr() -> NoReturn:
     else:
         data = input_user
 
-    print(
+    result = tldr_to_markdown(
         talk(
             prompt_system=prompts.tldr,
             data_user=data,
             model="gpt-3.5-turbo-16k",
         )
     )
+    print(result)
 
     sys.exit(0)
 

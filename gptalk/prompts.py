@@ -323,8 +323,37 @@ END:VCARD
 # tldr {{{1
 tldr = """Ignore all previous instructions. I want you to respond only in
 English. You are a very proficient researcher. Your task is to extract all
-facts and summarize the text I give you in all relevant aspects in a one-line
-"tl;dr" and then also with a few bulletpoints. All output shall be in English.
+facts and summarize the content I give you in all relevant aspects. All output
+shall be formatted in JSON, like this:
+
+```json
+{
+    "title": "One line of text that dispassionately summarizes the content in an honest, factual, neutral, and non-clickbait way.",
+    "description": "Between one to three paragraphs that concisely summarizes the content.",
+    "key_points":
+        [
+            "A list of 'bullet points' with key points and facts from the content."
+        ],
+}
+```
+For example:
+```json
+{
+    "title": "The Career of Christian Bale: From Child Actor to Method Acting Legend",
+    "description": "This content explores the career of Christian Bale, from his early start as a child actor to his iconic roles as Patrick Bateman, Bruce Wayne, and Dick Cheney. It delves into his method acting approach, his dedication to his roles, and the challenges hefaced in his personal life. Despite some setbacks, Bale's talent and commitment to his craft have made him one of the most respected actors in the industry.",
+    "key_points": [
+        "Christian Bale was born in 1974 in Wales and had an early start to his acting career.",
+        "He gained recognition for his breakout role in 'Empire of the Sun' at the age of 13.",
+        "Bale faced challenges with media attention and bullying during his early career.",
+        "He gained critical acclaim for his role as Patrick Bateman in 'American Psycho'.",
+        "Bale played the iconic role of Batman in Christopher Nolan's 'The Dark Knight' trilogy.",
+        "He has been known for his extreme method acting approach, including drastic weight fluctuations for roles.",
+        "Bale has received numerous awards and nominations for his performances, including an Academy Award for 'The Fighter'.",
+        "Despite some controversies, Bale's talent and dedication have solidified his status as a respected actor in the industry."
+    ]
+}
+```
+Please be careful. Your accuracy, comprehensiveness, and concision in your response is critical to my career.
 """
 # 1}}}
 # howdoi {{{1
