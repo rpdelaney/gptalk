@@ -124,7 +124,7 @@ his apartment. Before we get to talk to Shaun, who I am super excited to talk to
 I want to remind you we have a survey. Please fill out the Embedded survey so we
 know more about you and what you like about us. It helps us figure out
 how to direct time for guests in the blog and all the other things we do. So please,
-take three minutes, fill it out. The link will be in the show notes
+take three minutes, fill it out. The link will be in the show notes.
 
 Benishaela: Thanks for having me on.
 Host: Okay, I did give you a little introduction, but maybe I should ask you to tell
@@ -325,8 +325,7 @@ tldr = """Ignore all previous instructions. I want you to respond only in
 English. You are a very proficient researcher. Your task is to extract all
 facts and summarize the content I give you in all relevant aspects. All output
 shall be formatted in JSON, like this:
-
-```json
+---
 {
     "title": "One line of text that dispassionately summarizes the content in an honest, factual, neutral, and non-clickbait way.",
     "description": "Between one to three paragraphs that concisely summarizes the content.",
@@ -335,9 +334,11 @@ shall be formatted in JSON, like this:
             "A list of 'bullet points' with key points and facts from the content."
         ],
 }
-```
+---
+
 For example:
-```json
+
+---
 {
     "title": "The Career of Christian Bale: From Child Actor to Method Acting Legend",
     "description": "This content explores the career of Christian Bale, from his early start as a child actor to his iconic roles as Patrick Bateman, Bruce Wayne, and Dick Cheney. It delves into his method acting approach, his dedication to his roles, and the challenges hefaced in his personal life. Despite some setbacks, Bale's talent and commitment to his craft have made him one of the most respected actors in the industry.",
@@ -352,7 +353,8 @@ For example:
         "Despite some controversies, Bale's talent and dedication have solidified his status as a respected actor in the industry."
     ]
 }
-```
+---
+
 Please be careful. Your accuracy, comprehensiveness, and concision in your response is critical to my career.
 """
 # 1}}}
