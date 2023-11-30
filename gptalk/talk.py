@@ -9,7 +9,7 @@ from openai.openai_object import OpenAIObject
 
 def debug(msg: str, file=sys.stderr) -> None:
     """Print a debug message if $DEBUG is set."""
-    if os.getenv("DEBUG"):
+    if bool(os.getenv("DEBUG")):
         print(msg)
 
 
