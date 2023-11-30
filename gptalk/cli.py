@@ -41,7 +41,9 @@ def outline() -> NoReturn:
     input_user = _get_input()
     print(
         talk(
-            prompt_system=prompts.outline, data_user=input_user, model="gpt-4"
+            prompt_system=prompts.outline,
+            data_user=input_user,
+            model="gpt-4-1106-preview",
         )
     )
     sys.exit(0)
@@ -53,7 +55,11 @@ def ticket() -> NoReturn:
     input_user = _get_input()
 
     print(
-        talk(prompt_system=prompts.ticket, data_user=input_user, model="gpt-4")
+        talk(
+            prompt_system=prompts.ticket,
+            data_user=input_user,
+            model="gpt-4-1106-preview",
+        )
     )
 
     sys.exit(0)
@@ -96,7 +102,7 @@ def tldr() -> NoReturn:
         talk(
             prompt_system=prompts.tldr,
             data_user=data,
-            model="gpt-3.5-turbo-16k",
+            model="gpt-4-1106-preview",
         )
     )
     print(result)
@@ -109,7 +115,13 @@ def howdoi() -> NoReturn:
     """Like `howdoi` but ChatGPT instead of StackOverflow."""
     data = _get_input()
 
-    print(talk(prompt_system=prompts.howdoi, data_user=data, model="gpt-4"))
+    print(
+        talk(
+            prompt_system=prompts.howdoi,
+            data_user=data,
+            model="gpt-4-1106-preview",
+        )
+    )
 
     sys.exit(0)
 
