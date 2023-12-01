@@ -20,6 +20,7 @@ def talk(
     prompt_system: str,
     data_user: str,
     model: str = "gpt-3.5-turbo-16k",
+    preprocessors: list[T_Postprocessor] | None = None,
     postprocessors: list[T_Postprocessor] | None = None,
 ) -> str:
     """Initiate a conversation with the specified model.
@@ -31,8 +32,11 @@ def talk(
 
     :return: None
     """
-    client = OpenAI()
+    for preprocessor in preprocessors or []:
+        debug(f"Applying preprocessor {preprocessor}")
+        result = preprocessor(data_user)
 
+    client = OpenAI()
     start_time = time()
     request = {
         "temperature": 0,
