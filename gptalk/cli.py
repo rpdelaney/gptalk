@@ -7,6 +7,7 @@ import deal
 from requests_html import HTMLSession
 
 from . import prompts
+from .constants import GPT_MODEL_DEFAULT
 from .postprocessing import tldr_to_markdown, unfence
 from .preprocessing import extract_subtitles, fetch_url, summarize
 from .talk import talk
@@ -29,7 +30,7 @@ def outline() -> NoReturn:
         talk(
             prompt_system=prompts.outline,
             data_user=input_user,
-            model="gpt-4-1106-preview",
+            model=GPT_MODEL_DEFAULT,
         )
     )
     sys.exit(0)
@@ -44,7 +45,7 @@ def ticket() -> NoReturn:
         talk(
             prompt_system=prompts.ticket,
             data_user=input_user,
-            model="gpt-4-1106-preview",
+            model=GPT_MODEL_DEFAULT,
         )
     )
 
@@ -87,7 +88,7 @@ def tldr() -> NoReturn:
     result = talk(
         prompt_system=prompts.tldr,
         data_user=data,
-        model="gpt-4-1106-preview",
+        model=GPT_MODEL_DEFAULT,
         postprocessors=[unfence, tldr_to_markdown],
     )
     print(result)
@@ -104,7 +105,7 @@ def howdoi() -> NoReturn:
         talk(
             prompt_system=prompts.howdoi,
             data_user=data,
-            model="gpt-4-1106-preview",
+            model=GPT_MODEL_DEFAULT,
         )
     )
 
