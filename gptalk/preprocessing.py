@@ -35,8 +35,7 @@ def summarize(content: str) -> tuple[str, str]:
 
 def extract_subtitles(url: str) -> str:
     """
-    Extract automatic subtitles from a video URL using yt_dlp, save to a
-    temporary file, and return as a string.
+    Extract automatic subtitles from a video URL using yt_dlp.
 
     Args:
         url (str): The URL of the video.
