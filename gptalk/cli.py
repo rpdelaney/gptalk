@@ -10,8 +10,9 @@ from requests_html import HTMLSession
 from . import prompts
 from .exceptions import GPTNullInputError
 from .postprocessing import tldr_to_markdown, unfence
+from .preprocessing import extract_subtitles, fetch_url, summarize
 from .talk import talk
-from .utils import extract_subtitles, fetch_url, is_url, summarize
+from .utils import is_url
 
 deal.activate()
 
