@@ -1,8 +1,24 @@
 """Post-processors."""
 import json
+import re
 from json.decoder import JSONDecodeError
 
 from .exceptions import GPTJSONDecodeError
+
+
+def unfence(text: str) -> str:
+    """
+    Remove triple backticks from a multi-line string.
+
+    :param text: A string thta may have fenced code blocks.
+    :return: A string without fenced code blocks.
+    """
+    return re.sub(
+        r"^```(\s*\w+)?$",
+        "",
+        text.strip(),
+        flags=re.MULTILINE,
+    )
 
 
 def tldr_to_markdown(json_data: str) -> str:
