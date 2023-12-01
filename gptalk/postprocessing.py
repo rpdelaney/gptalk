@@ -8,6 +8,7 @@ from .exceptions import GPTJSONDecodeError
 
 T_Postprocessor = Callable[[str], str]
 
+
 def unfence(text: str) -> str:
     """
     Remove triple backticks from a multi-line string.
