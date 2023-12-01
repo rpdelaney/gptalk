@@ -48,11 +48,7 @@ def talk(
     print("Sending request...", file=sys.stderr)
     debug(f"{request}")
 
-    try:
-        response = client.chat.completions.create(**request)
-    except Exception as e:
-        debug(f"Error in OpenAI API call: {e}")
-        return f"Error: {e}"
+    response = client.chat.completions.create(**request)
 
     response_time = time() - start_time
     debug(f"Full response received:\n{response}")
