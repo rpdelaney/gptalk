@@ -58,10 +58,10 @@ def talk(
     debug(f"Full response received:\n{response}")
     debug(f"Response received {response_time:.2f} seconds after request")
 
-    result = response.choices[0].message.content.strip()
+    result = str(response.choices[0].message.content.strip())
 
     for postprocessor in postprocessors or []:
         debug(f"Applying postprocessor {postprocessor}")
         result = postprocessor(result)
 
-    return str(result)
+    return result
