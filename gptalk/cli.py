@@ -10,7 +10,7 @@ from inquirer import prompt, Editor
 from .talk import talk
 from .utils import is_url, fetch_url, summarize, extract_subtitles
 from .exceptions import GPTNullInputError
-from .postprocessing import tldr_to_markdown
+from .postprocessing import tldr_to_markdown, unfence
 from . import prompts
 
 deal.activate()
@@ -102,7 +102,7 @@ def tldr() -> NoReturn:
         prompt_system=prompts.tldr,
         data_user=data,
         model="gpt-4-1106-preview",
-        postprocessors=[tldr_to_markdown],
+        postprocessors=[unfence, tldr_to_markdown],
     )
     print(result)
 
