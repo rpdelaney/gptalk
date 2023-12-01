@@ -1,10 +1,25 @@
 """Utility functions and helpers."""
-import os
+import sys
 import re
-import tempfile
-from collections import OrderedDict
 
-from .exceptions import GPTSubsNotFoundError
+from inquirer import Editor, prompt
+
+from .exceptions import GPTNullInputError
+
+
+def get_input(prompt_message: str = "") -> str:
+    """Retrieve some user input."""
+    if sys.stdin.isatty():
+        questions = [Editor("long_text", message=prompt_message)]
+        answers = prompt(questions)
+        result = "".join(answers.get("long_text", "")).strip()
+    else:
+        result = sys.stdin.read().strip()
+
+    if len(result) > 0:
+        return result
+    else:
+        raise GPTNullInputError("User input was zero-length. Aborting.")
 
 
 def is_url(s: str) -> bool:

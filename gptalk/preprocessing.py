@@ -9,7 +9,7 @@ from readability import Document
 from requests import Response
 from requests_html import HTMLSession
 
-from .exceptions import GPTSubsNotFoundError
+from .exceptions import GPTSubsNotFoundError, GPTNullInputError
 
 
 def fetch_url(url: str, timeout: int = 10) -> Response:
