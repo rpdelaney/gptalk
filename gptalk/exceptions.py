@@ -1,5 +1,6 @@
 from json.decoder import JSONDecodeError
 
+
 class GPTValueError(ValueError):
     """gptalk-specific ValueError."""
 

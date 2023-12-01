@@ -1,10 +1,10 @@
-from time import time
 import os
 import sys
+from time import time
 from typing import TextIO
 
-import openai
 import deal
+import openai
 from openai import OpenAI
 
 from .postprocessing import T_Postprocessor

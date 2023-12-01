@@ -3,8 +3,8 @@
 """Helpers for meeting the token limits."""
 import sys
 
-import tiktoken
 import deal
+import tiktoken
 from tiktoken.core import Encoding
 
 _DEFAULT_ENCODING: Encoding = tiktoken.get_encoding("cl100k_base")

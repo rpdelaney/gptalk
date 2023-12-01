@@ -1,13 +1,13 @@
-import re
 import os
+import re
 import tempfile
 from collections import OrderedDict
 
-from requests_html import HTMLSession
-from requests import Response
-from readability import Document
-from bs4 import BeautifulSoup as bs
 import yt_dlp
+from bs4 import BeautifulSoup as bs
+from readability import Document
+from requests import Response
+from requests_html import HTMLSession
 
 from .exceptions import GPTSubsNotFoundError
 

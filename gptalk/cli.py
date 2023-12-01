@@ -4,14 +4,14 @@ from typing import NoReturn
 
 import click
 import deal
+from inquirer import Editor, prompt
 from requests_html import HTMLSession
-from inquirer import prompt, Editor
 
-from .talk import talk
-from .utils import is_url, fetch_url, summarize, extract_subtitles
+from . import prompts
 from .exceptions import GPTNullInputError
 from .postprocessing import tldr_to_markdown, unfence
-from . import prompts
+from .talk import talk
+from .utils import extract_subtitles, fetch_url, is_url, summarize
 
 deal.activate()
 
