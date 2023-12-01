@@ -771,20 +771,6 @@ flake8 = ">=3"
 pydocstyle = ">=2.1"
 
 [[package]]
-name = "flake8-pie"
-version = "0.16.0"
-description = "A flake8 extension that implements misc. lints"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "flake8-pie-0.16.0.tar.gz", hash = "sha256:b8dcb7b92706fa33d05d92a4b3e49b7a9fd3f0041849166275b646ba50e515ba"},
-    {file = "flake8_pie-0.16.0-py3-none-any.whl", hash = "sha256:24cd7849b0eee22e2328b9e9d2a1dea40013b0a3106864bbadd06a4b05dbb71f"},
-]
-
-[package.dependencies]
-typing_extensions = "*"
-
-[[package]]
 name = "flake8-simplify"
 version = "0.21.0"
 description = "flake8 plugin which checks for code that can be simplified"
@@ -2335,4 +2321,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11, <4.0"
-content-hash = "05eb986cb2e1a5f0d4694351e9ff3dd90f436a85037080ea7e6eed0c9f35f8a4"
+content-hash = "6ebcd788753cace7dbfd578d16e7bc6b9ae5fbe519ff064dd9f8121c452b5ff2"
