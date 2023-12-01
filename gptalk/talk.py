@@ -4,7 +4,7 @@ import sys
 
 import openai
 import deal
-from openai.openai_object import OpenAIObject
+from openai import OpenAI
 
 
 def debug(msg: str, file=sys.stderr) -> None:
@@ -27,6 +27,8 @@ def talk(
 
     :return: None
     """
+    client = OpenAI()
+
     start_time = time()
     request = {
         "temperature": 0,
@@ -46,9 +48,14 @@ def talk(
     print("Sending request...", file=sys.stderr)
     debug(f"{request}")
 
-    response: OpenAIObject = openai.ChatCompletion.create(**request)
+    try:
+        response = client.chat.completions.create(**request)
+    except Exception as e:
+        debug(f"Error in OpenAI API call: {e}")
+        return f"Error: {e}"
 
     response_time = time() - start_time
     debug(f"Full response received:\n{response}")
-    debug(f"Full response received {response_time:.2f} seconds after request")
+    debug(f"Response received {response_time:.2f} seconds after request")
+
     return str(response.choices[0].message.content.strip())
