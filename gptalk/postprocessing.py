@@ -2,9 +2,11 @@
 import json
 import re
 from json.decoder import JSONDecodeError
+from typing import Callable
 
 from .exceptions import GPTJSONDecodeError
 
+T_Postprocessor = Callable[[str], str]
 
 def unfence(text: str) -> str:
     """
