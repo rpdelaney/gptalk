@@ -6,6 +6,8 @@ import openai
 import deal
 from openai import OpenAI
 
+from .postprocessing import T_Postprocessor
+
 
 def debug(msg: str, file=sys.stderr) -> None:
     """Print a debug message if $DEBUG is set."""
@@ -17,6 +19,7 @@ def talk(
     prompt_system: str,
     data_user: str,
     model: str = "gpt-3.5-turbo-16k",
+    postprocessors: list[T_Postprocessor] | None = None,
 ) -> str:
     """Initiate a conversation with the specified model.
 
@@ -54,4 +57,10 @@ def talk(
     debug(f"Full response received:\n{response}")
     debug(f"Response received {response_time:.2f} seconds after request")
 
-    return str(response.choices[0].message.content.strip())
+    result = response.choices[0].message.content.strip()
+
+    for postprocessor in postprocessors or []:
+        debug(f"Applying postprocessor {postprocessor}")
+        result = postprocessor(result)
+
+    return str(result)

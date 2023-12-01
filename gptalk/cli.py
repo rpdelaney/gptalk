@@ -98,12 +98,11 @@ def tldr() -> NoReturn:
     else:
         data = input_user
 
-    result = tldr_to_markdown(
-        talk(
-            prompt_system=prompts.tldr,
-            data_user=data,
-            model="gpt-4-1106-preview",
-        )
+    result = talk(
+        prompt_system=prompts.tldr,
+        data_user=data,
+        model="gpt-4-1106-preview",
+        postprocessors=[tldr_to_markdown],
     )
     print(result)
 
