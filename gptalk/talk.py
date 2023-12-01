@@ -1,6 +1,7 @@
 from time import time
 import os
 import sys
+from typing import TextIO
 
 import openai
 import deal
@@ -9,7 +10,7 @@ from openai import OpenAI
 from .postprocessing import T_Postprocessor
 
 
-def debug(msg: str, file=sys.stderr) -> None:
+def debug(msg: str, file: TextIO = sys.stderr) -> None:
     """Print a debug message if $DEBUG is set."""
     if bool(os.getenv("DEBUG")):
         print(msg)
