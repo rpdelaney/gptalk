@@ -55,18 +55,14 @@ def ticket() -> NoReturn:
 @cli.command()
 def vcard() -> NoReturn:
     """Read unstructured data and output a contact card (VCF)."""
-    input_user = get_input()
-    if is_url(input_user):
-        if response := fetch_url(input_user):
-            data = "\n----\n".join(summarize(response.content.decode()))
-    else:
-        data = input_user
+    data = get_input()
 
     print(
         talk(
             prompt_system=prompts.vcard,
             data_user=data,
             model="gpt-3.5-turbo-16k",
+            preprocessors=[fetch_url, summarize],
         )
     )
 
