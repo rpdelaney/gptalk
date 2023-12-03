@@ -10,9 +10,10 @@ GPTalk's commands can perform pre-processing. For example, if asked to summarize
 a YouTube video, it will quietly extract the subtitles to the video and print a
 summary:
 
-.. raw:: html
+|asciicast|
 
-   <script async id="asciicast-UDieN0MgIUfBBJluaiKl4aY8z" src="https://asciinema.org/a/UDieN0MgIUfBBJluaiKl4aY8z.js"></script>
+.. |asciicast| image:: https://asciinema.org/a/UDieN0MgIUfBBJluaiKl4aY8z.svg
+   :target: https://asciinema.org/a/UDieN0MgIUfBBJluaiKl4aY8z
 
 Installation
 ------------
