@@ -35,15 +35,29 @@ def summarize(content: str) -> tuple[str, str]:
 
 
 def extract_subtitles(url: str) -> str:
-    """
-    Extract automatic subtitles from a video URL using yt_dlp.
+    """Extract subtitles from a URL, if supported.
+
+    Extract automatic subtitles from a string that could be a video URL
+    using yt_dlp.
+
+    This function first checks if the provided string is a URL supported by
+    a yt_dlp extractor. If it is, it attempts to extract and process
+    subtitles from the video at that URL. If not, it simply returns the
+    original string.
 
     Args:
-        url (str): The URL of the video.
+        url (str): The string to check and process if it's a supported
+        URL.
 
     Returns:
-        str: The extracted subtitles as a string.
+        str: The extracted and processed subtitles as a string, or the
+        original string if it's not a supported URL.
     """
+    for extractor in yt_dlp.extractor.gen_extractors():
+        if extractor.suitable(url):
+            break
+    else:
+        return url
 
     def vtt2prose(vtt: str) -> str:
         """
