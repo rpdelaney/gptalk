@@ -47,7 +47,7 @@ Usage
      tldr     Provide a tl;dr on a stream.
      vcard    Read unstructured data and output a contact card (VCF).
 
-``gptalk`` has various subcommands. Data will is from standard input; if
+``gptalk`` has various subcommands. Data is read from standard input; if
 not found, your $EDITOR will be opened.
 
 Development
