@@ -7,7 +7,6 @@ from collections import OrderedDict
 import yt_dlp
 from bs4 import BeautifulSoup as bs
 from readability import Document
-from requests import Response
 from requests_html import HTMLSession
 
 from .exceptions import GPTSubsNotFoundError
@@ -21,7 +20,7 @@ def fetch_url(url: str, timeout: int = 10) -> str:
 
     requests = HTMLSession()
 
-    response: Response = requests.get(url=url, timeout=10)
+    response = requests.get(url=url, timeout=10)
     response.html.render()
     response.raise_for_status()
 
