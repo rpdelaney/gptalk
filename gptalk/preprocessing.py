@@ -13,7 +13,7 @@ from requests_html import HTMLSession
 from .exceptions import GPTSubsNotFoundError
 
 
-def fetch_url(url: str, timeout: int = 10) -> Response:
+def fetch_url(url: str, timeout: int = 10) -> str:
     """Get the content from a page at URL."""
     requests = HTMLSession()
 
@@ -21,7 +21,7 @@ def fetch_url(url: str, timeout: int = 10) -> Response:
     response.html.render()
     response.raise_for_status()
 
-    return response
+    return response.content.decode()
 
 
 def summarize(content: str) -> tuple[str, str]:
