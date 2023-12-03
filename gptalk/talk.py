@@ -19,7 +19,7 @@ def debug(msg: str, file: TextIO = sys.stderr) -> None:
 def talk(
     prompt_system: str,
     data_user: str,
-    model: str = "gpt-3.5-turbo-16k",
+    model: str,
     preprocessors: list[T_Postprocessor] | None = None,
     postprocessors: list[T_Postprocessor] | None = None,
 ) -> str:
