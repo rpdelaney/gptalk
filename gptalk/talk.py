@@ -32,9 +32,10 @@ def talk(
 
     :return: None
     """
-    for preprocessor in preprocessors or []:
+    result = data_user
+    for preprocessor in preprocessors or ():
         debug(f"Applying preprocessor {preprocessor}")
-        result = preprocessor(data_user)
+        result = preprocessor(result)
 
     client = OpenAI()
     start_time = time()
@@ -48,7 +49,7 @@ def talk(
             },
             {
                 "role": "user",
-                "content": str(data_user),
+                "content": str(result),
             },
         ],
     }
