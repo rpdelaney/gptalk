@@ -11,10 +11,14 @@ from requests import Response
 from requests_html import HTMLSession
 
 from .exceptions import GPTSubsNotFoundError
+from .utils import is_url
 
 
 def fetch_url(url: str, timeout: int = 10) -> str:
-    """Get the content from a page at URL."""
+    """Get the content from a page at URL, if it is a URL."""
+    if not is_url(url):
+        return url
+
     requests = HTMLSession()
 
     response: Response = requests.get(url=url, timeout=10)
