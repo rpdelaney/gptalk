@@ -5,9 +5,9 @@ import tempfile
 from collections import OrderedDict
 
 import yt_dlp
+import requests
 from bs4 import BeautifulSoup as bs
 from readability import Document
-from requests_html import HTMLSession
 
 from .exceptions import GPTSubsNotFoundError
 from .utils import is_url
@@ -18,13 +18,11 @@ def fetch_url(url: str, timeout: int = 10) -> str:
     if not is_url(url):
         return url
 
-    requests = HTMLSession()
-
-    response = requests.get(url=url, timeout=10)
-    response.html.render()
+    response = requests.get(url, timeout=timeout)
     response.raise_for_status()
+    soup = bs(response.content, "html.parser")
 
-    return response.content.decode()
+    return soup.get_text()
 
 
 def summarize(content: str) -> tuple[str, str]:
