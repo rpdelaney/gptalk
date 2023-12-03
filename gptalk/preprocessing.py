@@ -25,14 +25,14 @@ def fetch_url(url: str, timeout: int = 10) -> str:
     return soup.get_text()
 
 
-def summarize(content: str) -> tuple[str, str]:
+def summarize(content: str) -> str:
     """Take content and use readability to return a document summary."""
     doc = Document(content)
 
     title: str = doc.short_title()
     summary: str = bs(doc.summary(), "lxml").text
 
-    return (title, summary)
+    return f"{title}\n{summary}"
 
 
 def extract_subtitles(url: str) -> str:
