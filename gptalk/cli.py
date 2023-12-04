@@ -4,7 +4,6 @@ from typing import NoReturn
 
 import click
 import deal
-from requests_html import HTMLSession
 
 from . import prompts
 from .constants import GPT_MODEL_DEFAULT
