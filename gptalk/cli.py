@@ -71,19 +71,13 @@ def vcard() -> NoReturn:
 @cli.command()
 def tldr() -> NoReturn:
     """Provide a tl;dr on a stream."""
-    input_user = get_input()
-    if is_url(input_user):
-        if "youtu" in input_user:
-            data = extract_subtitles(input_user)
-        elif response := fetch_url(input_user):
-            data = "\n----\n".join(summarize(response.content.decode()))
-    else:
-        data = input_user
+    data = get_input()
 
     result = talk(
         prompt_system=prompts.tldr,
         data_user=data,
         model=GPT_MODEL_DEFAULT,
+        preprocessors=[extract_subtitles, fetch_url, summarize],
         postprocessors=[unfence, tldr_to_markdown],
     )
     print(result)
