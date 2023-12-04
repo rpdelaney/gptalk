@@ -55,7 +55,9 @@ def extract_subtitles(url: str) -> str:
         original string if it's not a supported URL.
     """
     for extractor in yt_dlp.extractor.gen_extractors():
-        if extractor.suitable(url):
+        # The generic extractor always returns suitable, even
+        # when it won't run on the URL
+        if extractor.suitable(url) and extractor.IE_NAME != 'generic':
             break
     else:
         return url
