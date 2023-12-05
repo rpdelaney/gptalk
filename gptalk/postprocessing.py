@@ -13,7 +13,7 @@ def unfence(text: str) -> str:
     """
     Remove triple backticks from a multi-line string.
 
-    :param text: A string thta may have fenced code blocks.
+    :param text: A string that may have fenced code blocks.
     :return: A string without fenced code blocks.
     """
     return re.sub(
