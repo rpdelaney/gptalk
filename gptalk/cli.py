@@ -10,7 +10,7 @@ from .constants import GPT_MODEL_DEFAULT
 from .postprocessing import tldr_to_markdown, unfence
 from .preprocessing import extract_subtitles, fetch_url, summarize
 from .talk import talk
-from .utils import is_url, get_input
+from .utils import get_input
 
 deal.activate()
 
@@ -106,6 +106,12 @@ def subsfix() -> NoReturn:
     """Fix subtitles generated with speech to text."""
     data = get_input()
 
-    print(talk(prompt_system=prompts.subsfix, data_user=data))
+    print(
+        talk(
+            prompt_system=prompts.subsfix,
+            data_user=data,
+            model=GPT_MODEL_DEFAULT,
+        )
+    )
 
     sys.exit(0)
