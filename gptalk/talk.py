@@ -4,7 +4,6 @@ from time import time
 from typing import TextIO
 
 import deal
-import openai
 from openai import OpenAI
 
 from .postprocessing import T_Postprocessor
