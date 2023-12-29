@@ -17,7 +17,7 @@ def unfence(text: str) -> str:
     :return: A string without fenced code blocks.
     """
     return re.sub(
-        r"^```(\s*\w+)?$",
+        r"^(-|`)+(\s*\w+)?$",
         "",
         text.strip(),
         flags=re.MULTILINE,
