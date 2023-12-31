@@ -12,7 +12,6 @@ class GPTNullInputError(GPTValueError):
 class GPTFileNotFoundError(FileNotFoundError):
     """We couldn't find a file we need."""
 
-
 class GPTSubsNotFoundError(GPTFileNotFoundError):
     """We couldn't find the subtitles file."""
 
