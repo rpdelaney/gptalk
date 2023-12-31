@@ -1,4 +1,5 @@
 """Pre-processors."""
+import contextlib
 import os
 import re
 import tempfile
@@ -57,7 +58,7 @@ def extract_subtitles(url: str) -> str:
     for extractor in yt_dlp.extractor.gen_extractors():
         # The generic extractor always returns suitable, even
         # when it won't run on the URL
-        if extractor.suitable(url) and extractor.IE_NAME != 'generic':
+        if extractor.suitable(url) and extractor.IE_NAME != "generic":
             break
     else:
         return url
@@ -107,10 +108,11 @@ def extract_subtitles(url: str) -> str:
         video_id = info_dict.get("id")
         subs_filename = os.path.join(temp_dir.name, f"{video_id}.en.vtt")
 
-    try:
-        with open(subs_filename, "r", encoding="utf-8") as file:
-            subtitles = file.read()
-    except FileNotFoundError as fnfe:
-        raise GPTSubsNotFoundError("No subtitles found.") from fnfe
+    subtitles = ""
+    with (
+        contextlib.suppress(FileNotFoundError),
+        open(subs_filename, "r", encoding="utf-8") as file,
+    ):
+        subtitles = file.read()
 
-    return vtt2prose(subtitles)
+    return vtt2prose(subtitles) if subtitles else url
