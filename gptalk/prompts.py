@@ -380,9 +380,10 @@ convert mp4 to a high-quality animated gif
 ```
 You:
 ```
-infile=/path/to/video.mp4
-outfile=/path/to/output.gif
+infile="$INPUT_FILE_PATH"
+outfile="$OUTPUT_FILE_PATH"
 duration_s=3
+
 ffmpeg -i "$infile".mp4 \
     -t "$duration_s" \
     -vf "fps=10,scale=320:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
