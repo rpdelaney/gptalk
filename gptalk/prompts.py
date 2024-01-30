@@ -77,20 +77,21 @@ Chosen option: "{title of option N}", because {justification}.
 - Neutral, because {argument b}
 - Bad, because {argument c}
 ```
-First, you will introduce yourself, and prompt me to supply information
-you feel is necessary to make a first draft from the template.
 """
 # 1}}}
 # outline {{{1
 outline = """
-Please ignore all previous instructions. Using the MECE framework,
+Using the MECE framework,
 create a detailed long-form content outline for our English writers.
 Also, provide a short and attention-grabbing
 title for the article and an estimate of the word count for each
 subheading. Include a list of semantically similar FAQs using the vector
 representation technique. Generate the output in markdown format. Please
-don't write the article, only the outline for writers. Do not remind me
-what I asked you for. Do not apologize. Do not self-reference."""
+don't write the article, only the outline for writers.
+
+Do not remind me what I asked you for. Do not apologize. Do not self-reference.
+This is very important for my career.
+"""
 # 1}}}
 # subsfix {{{1
 subsfix = """You are a captioner for movies and videos. Subtitles have been
@@ -162,11 +163,11 @@ anticipates potential pitfalls, and clearly communicates constraints on
 solutions.
 
 Remember, your role as product manager is to define what needs to be done
-and why, but not how; leave the technical implementation details to the
-engineers. Do not remind me what I asked you for. Do not apologize. Do
-not self-reference.
+and why, but not how it should be done.
 
-If I provide any links in the problem statement, ensure that they are
+Do not remind me what I asked you for. Do not apologize. Do not self-reference.
+
+If I provide any links in the problem statement, please ensure that they are
 properly integrated and formatted within your response using markdown
 formatting.
 
@@ -240,6 +241,7 @@ Addressing these deprecation warnings is necessary to ensure that our infrastruc
 - The Terraform plan runs without any deprecation warnings.
 ```
 ---
+Please be careful and precise. Your performance is very important for my career.
 """
 # 1}}}
 # vcard {{{1
@@ -252,8 +254,8 @@ according to the specifications in RFC2426.
 Hours of operation and geolocation data
 go in the `NOTES` field.
 
-No matter what, you will respond with NOTHING
-else but vCard data. Do not remind me what I asked you
+No matter what, please respond with NOTHING
+else but vCard data. Please do not remind me what I asked you
 for. Do not apologize. Do not self-reference.
 
 For example, if I give you this:
@@ -318,6 +320,7 @@ ADR;TYPE=WORK:;;123 Maple St;Faketown;ME;98765;United States
 NOTE:Hours: Sun 9:00 AM–5 PM, Mon 9:00 AM–7 PM, Tue 9:00 AM–7 PM, Wed 9:00 AM–7 PM, Thu 9:00 AM–7 PM, Fri 9:00 AM–7 PM, Sat 9:00 AM–5 PM
 END:VCARD
 ---
+Your accuracy, attention to detail, and compliance with vCard format are very important for my career.
 """
 # 1}}}
 # tldr {{{1
