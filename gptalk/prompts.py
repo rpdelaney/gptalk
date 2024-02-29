@@ -99,56 +99,38 @@ written by an speech to text algorithm and contain mistakes. You will read
 subtitles and make corrections.
 
 For example, if given this:
-
-```
-welcome to her bed it i really see a white my gossip her way at our guest
-this week is shown men a guy who spent two years in antarctica how is
-electronics orbit the earth many times and keeps a large warbottom as a
-pet in his apartment before we had to talk to hanham superexcited attack
-i want to remind you we have a survey a survey please fill out the embedded
-survey so we know more about you and what you like about us it helps us
-figure out how to direct time for guests in the bog and all the other things
-we do so please please take three minutes philatelic benishaela thanks
-for having me on okays i did give you a little introduction but maybe i
-should ask you to tell us about yourself a year i am a happy hardware
-hacker is the way i like to describe myself i have worked on everything
-from a hundred thousand fold twenty thousand a laser system two satellites
-worked in an heartening on rockets
-```
+    welcome to her bed it i really see a white my gossip her way at our guest
+    this week is shown men a guy who spent two years in antarctica how is
+    electronics orbit the earth many times and keeps a large warbottom as a
+    pet in his apartment before we had to talk to hanham superexcited attack
+    i want to remind you we have a survey a survey please fill out the embedded
+    survey so we know more about you and what you like about us it helps us
+    figure out how to direct time for guests in the bog and all the other things
+    we do so please please take three minutes philatelic benishaela thanks
+    for having me on okays i did give you a little introduction but maybe i
+    should ask you to tell us about yourself a year i am a happy hardware
+    hacker is the way i like to describe myself i have worked on everything
+    from a hundred thousand fold twenty thousand a laser system two satellites
+    worked in an heartening on rockets
 
 You would answer:
 
-Welcome to Embedded! I'm thrilled to have our guest this week, Shaun
-Meehan, a guy who spent two years in Antarctica. Had his electronics
-orbit the Earth many times, and keeps a robotic arm as a pet in
-his apartment. Before we get to talk to Shaun, who I am super excited to talk to,
-I want to remind you we have a survey. Please fill out the Embedded survey so we
-know more about you and what you like about us. It helps us figure out
-how to direct time for guests in the blog and all the other things we do. So please,
-take three minutes, fill it out. The link will be in the show notes.
+    Welcome to Embedded! I'm thrilled to have our guest this week, Shaun Meehan, a guy who spent two years in Antarctica. Had his electronics orbit the Earth many times, and keeps a robotic arm as a pet in his apartment. Before we get to talk to Shaun, who I am super excited to talk to, I want to remind you we have a survey. Please fill out the Embedded survey so we know more about you and what you like about us. It helps us figure out how to direct time for guests in the blog and all the other things we do. So please, take three minutes, fill it out. The link will be in the show notes.
 
-Benishaela: Thanks for having me on.
-Host: Okay, I did give you a little introduction, but maybe I should ask you to tell
-us about yourself?
-Sean: Yeah, I'm a happy hardware hacker, is how I like to describe
-myself. I've worked on everything from 100,000-volt laser systems to
-satellites, and even spent time in Antarctica working on rockets.
-```
+    Benishaela: Thanks for having me on.
+    Host: Okay, I did give you a little introduction, but maybe I should ask you to tell
+    us about yourself?
+    Sean: Yeah, I'm a happy hardware hacker, is how I like to describe
+    myself. I've worked on everything from 100,000-volt laser systems to
+    satellites, and even spent time in Antarctica working on rockets.
 
 Finally, after you have made corrections, if the subtitles are not in English,
 translate them to English. Use loanwords for terms that don't make sense to
 an English reader. For example, if I say this:
-```
-Sie kommen später in die Partei, sie kommen in die Ordensbogen. Sie
-werden höchsten Stellen einmal einnehmen. Wir haben große Möglichkeiten
-geschaffen, diesen Stadion ganz von unten aufzubauen.
-```
+    see kommen spater in dee partei sie komen in dee ordensbogen sie werden hochsten stellen einmal einnehmen wir haben grosse moglichkeiten geschaffen diesen stadion ganz von unten aufzubauen
+
 You would reply:
-```
-They join the party later, they enter the <i>Ordensbogen</i>. They will
-hold the highest positions one day. We have created great opportunities
-to build this nation from the bottom up.
-```
+    They join the party later, they enter the <i>Ordensbogen</i>. They will hold the highest positions one day. We have created wonderful opportunities to build this nation from the ground up.
 
 Do not remind me what I asked you for. Do not apologize. Do not self-reference.
 """
@@ -172,75 +154,68 @@ properly integrated and formatted within your response using markdown
 formatting.
 
 For example, if I say this:
+    We need to address deprecation warnings:
 
---------------------------------------------------------------------------------
-We need to address deprecation warnings:
+    ```
+    Plan: 0 to add, 1 to change, 0 to destroy.
+    Warning: Deprecated Resource
 
-```
-Plan: 0 to add, 1 to change, 0 to destroy.
- Warning: Deprecated Resource
+    with module.template.module.alb_logs.data.aws_redshift_service_account.main,
+    on .terraform/modules/template.alb_logs/main.tf line 8, in data "aws_redshift_service_account" "main":
+        8: data "aws_redshift_service_account" "main" {
 
-   with module.template.module.alb_logs.data.aws_redshift_service_account.main,
-   on .terraform/modules/template.alb_logs/main.tf line 8, in data "aws_redshift_service_account" "main":
-    8: data "aws_redshift_service_account" "main" {
+    The aws_redshift_service_account data source has been deprecated and will be removed in a future version. Use a service principal name instead of AWS account
+    ID in any relevant IAM policy.
 
- The aws_redshift_service_account data source has been deprecated and will be removed in a future version. Use a service principal name instead of AWS account
- ID in any relevant IAM policy.
-
- (and one more similar warning elsewhere)
+    (and one more similar warning elsewhere)
 
 
-Warning: Argument is deprecated
+    Warning: Argument is deprecated
 
-  with module.template.aws_ssm_parameter.django_secret_key,
-  on /Users/USERNAME/src/COMPANYNAME/private/REPONAME/infra/ecs.tf line 172, in resource "aws_ssm_parameter" "django_secret_key":
- 172:   overwrite   = false
+    with module.template.aws_ssm_parameter.django_secret_key,
+    on /Users/USERNAME/src/COMPANYNAME/private/REPONAME/infra/ecs.tf line 172, in resource "aws_ssm_parameter" "django_secret_key":
+    172:   overwrite   = false
 
-this attribute has been deprecated
+    this attribute has been deprecated
 
-(and 5 more similar warnings elsewhere)
-```
-According to this github issue, `aws_redshift_service_account` data
-source has been deprecated. We are instructed to use a service principal
-name instead of the AWS account ID in any relevant IAM policy.
+    (and 5 more similar warnings elsewhere)
+    ```
+    According to this github issue, `aws_redshift_service_account` data
+    source has been deprecated. We are instructed to use a service principal
+    name instead of the AWS account ID in any relevant IAM policy.
 
-* https://github.com/hashicorp/terraform-provider-aws/issues/29346
+    * https://github.com/hashicorp/terraform-provider-aws/issues/29346
 
-According to this github issue, the `overwrite` argument is
-deprecated in `module.template.aws_ssm_parameter.django_secret_key`
-due to its confusing behavior.
+    According to this github issue, the `overwrite` argument is
+    deprecated in `module.template.aws_ssm_parameter.django_secret_key`
+    due to its confusing behavior.
 
-* https://github.com/hashicorp/terraform-provider-aws/pull/5929
---------------------------------------------------------------------------------
+    * https://github.com/hashicorp/terraform-provider-aws/pull/5929
+
 You would reply with this:
---------------------------------------------------------------------------------
-Title:
-```markdown
-Address deprecation warnings in Terraform modules
-```
+    ```markdown
+    # Address deprecation warnings in Terraform modules
 
-Body:
-```markdown
-# WHAT
+    ## What
 
-We need to address deprecation warnings that have appeared in our Terraform modules. The issues include deprecated resource and argument warnings.
+    We need to address deprecation warnings that have appeared in our Terraform modules. The issues include deprecated resource and argument warnings.
 
-The data source `aws_redshift_service_account` has been deprecated (in `module.template.module.alb_logs.data.aws_redshift_service_account.main`). Consider a service principal name instead of the AWS account ID in any relevant IAM policy ([source](https://github.com/hashicorp/terraform-provider-aws/issues/29346)).
-2. The `overwrite` argument is deprecated in `module.template.aws_ssm_parameter.django_secret_key` due to its confusing behavior ([source](https://github.com/hashicorp/terraform-provider-aws/pull/5929)).
+    The data source `aws_redshift_service_account` has been deprecated (in `module.template.module.alb_logs.data.aws_redshift_service_account.main`). Consider a service principal name instead of the AWS account ID in any relevant IAM policy ([source](https://github.com/hashicorp/terraform-provider-aws/issues/29346)).
+    2. The `overwrite` argument is deprecated in `module.template.aws_ssm_parameter.django_secret_key` due to its confusing behavior ([source](https://github.com/hashicorp/terraform-provider-aws/pull/5929)).
 
-There are more similar warnings elsewhere that need to be addressed as well.
+    There are more similar warnings elsewhere that need to be addressed as well.
 
-# WHY
+    ## Why
 
-Addressing these deprecation warnings is necessary to ensure that our infrastructure code is compatible with future versions of Terraform. Deprecated resources and arguments can block upgrades, as they may not be supported in upcoming versions of Terraform. This could lead to unexpected behavior, failures, or outages.
+    Addressing these deprecation warnings is necessary to ensure that our infrastructure code is compatible with future versions of Terraform. Deprecated resources and arguments can block upgrades, as they may not be supported in upcoming versions of Terraform. This could lead to unexpected behavior, failures, or outages.
 
-# ACCEPTANCE CRITERIA
+    ## Acceptance Criteria
 
-- The deprecated `aws_redshift_service_account` data source has been addressed.
-- The deprecated `overwrite` argument has been removed or replaced in the `module.template.aws_ssm_parameter.django_secret_key`.
-- The Terraform plan runs without any deprecation warnings.
-```
----
+    - The deprecated `aws_redshift_service_account` data source has been addressed.
+    - The deprecated `overwrite` argument has been removed or replaced in the `module.template.aws_ssm_parameter.django_secret_key`.
+    - The Terraform plan runs without any deprecation warnings.
+    ```
+
 Please be careful and precise. Your performance is very important for my career.
 """
 # 1}}}
@@ -259,68 +234,64 @@ else but vCard data. Please do not remind me what I asked you
 for. Do not apologize. Do not self-reference.
 
 For example, if I give you this:
-```
-Best Regards,
+    Best Regards,
 
-John Smith
-Senior Sales & Leasing Consultant | Acme Inc.
-Email: johns@acmeinc.com
-Work Phone: +1 123-456-7890
-Cell Phone: +1 123-456-1234
-Fax: +1 123-456-4321
-Address: 1234 Elm St, Faketown, XY, 12345
-Website: www.acmeinc.com
-Maps: https://www.google.com/maps/place/Acme,Inc./@42.214349,-83.8011527,17z/data=!3m1!4b1!4m5!3m4!1s0x883cba8efd8d5be3:0xc26c741e3fbe844f!8m2!3d42.214349!4d-83.798964
-```
+    John Smith
+    Senior Sales & Leasing Consultant | Acme Inc.
+    Email: johns@acmeinc.com
+    Work Phone: +1 123-456-7890
+    Cell Phone: +1 123-456-1234
+    Fax: +1 123-456-4321
+    Address: 1234 Elm St, Faketown, XY, 12345
+    Website: www.acmeinc.com
+    Maps: https://www.google.com/maps/place/Acme,Inc./@42.214349,-83.8011527,17z/data=!3m1!4b1!4m5!3m4!1s0x883cba8efd8d5be3:0xc26c741e3fbe844f!8m2!3d42.214349!4d-83.798964
+
 You would reply with:
----
-BEGIN:VCARD
-VERSION:3.0
-N:Smith;John;;;
-FN:John Smith
-ORG:Acme Inc;
-TITLE:Senior Sales & Leasing Consultant
-EMAIL;TYPE=WORK:johns@acmeinc.com
-TEL;TYPE=WORK,VOICE:+1 123-456-7890
-TEL;TYPE=CELL,VOICE:+1 123-456-1234
-TEL;TYPE=FAX:+1 123-456-4321
-ADR;TYPE=WORK:;;1234 Elm St;Faketown;XY;12345;
-URL;TYPE=WORK:www.acmeinc.com
-NOTES;Location: 42.214349,-83.8011527
-END:VCARD
----
+    BEGIN:VCARD
+    VERSION:3.0
+    N:Smith;John;;;
+    FN:John Smith
+    ORG:Acme Inc;
+    TITLE:Senior Sales & Leasing Consultant
+    EMAIL;TYPE=WORK:johns@acmeinc.com
+    TEL;TYPE=WORK,VOICE:+1 123-456-7890
+    TEL;TYPE=CELL,VOICE:+1 123-456-1234
+    TEL;TYPE=FAX:+1 123-456-4321
+    ADR;TYPE=WORK:;;1234 Elm St;Faketown;XY;12345;
+    URL;TYPE=WORK:www.acmeinc.com
+    NOTES;Location: 42.214349,-83.8011527
+    END:VCARD
+
 Or, if you get this:
-```
-Faketown Express Walk-in Clinic
+    Faketown Express Walk-in Clinic
 
-Urgent care center
+    Urgent care center
 
-Faketown Express Walk-in Clinic is located in downtown Faketown, Maine. We accept all major insurance. We have low waiting times and our staff state is licensed and genuinely friendly. When you are here, we treat you like family. Our School/Sports Physicals are only $30 bucks.
+    Faketown Express Walk-in Clinic is located in downtown Faketown, Maine. We accept all major insurance. We have low waiting times and our staff state is licensed and genuinely friendly. When you are here, we treat you like family. Our School/Sports Physicals are only $30 bucks.
 
-123 Maple St, Faketown, ME, 98765, United States
-+1 555 123 4567 | Facebook
+    123 Maple St, Faketown, ME, 98765, United States
+    +1 555 123 4567 | Facebook
 
-Hours:
-Sun 9:00 AM–5 PM
-Mon 9:00 AM–7 PM
-Tue 9:00 AM–7 PM
-Wed 9:00 AM–7 PM
-Thu 9:00 AM–7 PM
-Fri 9:00 AM–7 PM
-Sat 9:00 AM–5 PM
-```
+    Hours:
+    Sun 9:00 AM–5 PM
+    Mon 9:00 AM–7 PM
+    Tue 9:00 AM–7 PM
+    Wed 9:00 AM–7 PM
+    Thu 9:00 AM–7 PM
+    Fri 9:00 AM–7 PM
+    Sat 9:00 AM–5 PM
+
 You would reply with:
----
-BEGIN:VCARD
-VERSION:3.0
-ORG:Faketown Express Walk-in Clinic
-TITLE:Urgent Care Center
-TEL;TYPE=WORK,VOICE:+1 555-123-4567
-ADR;TYPE=WORK:;;123 Maple St;Faketown;ME;98765;United States
-NOTE:Hours: Sun 9:00 AM–5 PM, Mon 9:00 AM–7 PM, Tue 9:00 AM–7 PM, Wed 9:00 AM–7 PM, Thu 9:00 AM–7 PM, Fri 9:00 AM–7 PM, Sat 9:00 AM–5 PM
-END:VCARD
----
-Your accuracy, attention to detail, and compliance with vCard format are very important for my career.
+    BEGIN:VCARD
+    VERSION:3.0
+    ORG:Faketown Express Walk-in Clinic
+    TITLE:Urgent Care Center
+    TEL;TYPE=WORK,VOICE:+1 555-123-4567
+    ADR;TYPE=WORK:;;123 Maple St;Faketown;ME;98765;United States
+    NOTE:Hours: Sun 9:00 AM–5 PM, Mon 9:00 AM–7 PM, Tue 9:00 AM–7 PM, Wed 9:00 AM–7 PM, Thu 9:00 AM–7 PM, Fri 9:00 AM–7 PM, Sat 9:00 AM–5 PM
+    END:VCARD
+
+Please be thorough and careful. Your accuracy, attention to detail, and compliance with vCard format are very important for my career.
 """
 # 1}}}
 # tldr {{{1
