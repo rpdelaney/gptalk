@@ -115,3 +115,19 @@ def subsfix() -> NoReturn:
     )
 
     sys.exit(0)
+
+
+@cli.command()
+def translate() -> NoReturn:
+    """Translate some text."""
+    data = get_input()
+
+    print(
+        talk(
+            prompt_system=prompts.translate,
+            data_user=data,
+            model=GPT_MODEL_DEFAULT,
+        )
+    )
+
+    sys.exit(0)
