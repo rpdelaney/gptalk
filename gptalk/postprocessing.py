@@ -54,6 +54,6 @@ def tldr_to_markdown(json_data: str) -> str:
     markdown_text = f"# {data['title']}\n\n"
     markdown_text += f"{data['description']}\n\n"
     markdown_text += "## Key points\n\n"
-    markdown_text += "\n".join(f"- {point}" for point in data["key_points"])
+    markdown_text += "\n".join(f"- {point}" for point in data["key_facts"])
 
     return markdown_text

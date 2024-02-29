@@ -332,7 +332,7 @@ shall be formatted in JSON, like this:
 {
     "title": "One line of text that dispassionately summarizes the content in an honest, factual, neutral, and non-clickbait way.",
     "description": "Between one to three paragraphs that concisely summarizes the content.",
-    "key_points":
+    "key_facts":
         [
             "A list of 'bullet points' with key points and facts from the content."
         ],
@@ -343,14 +343,14 @@ For example:
 
 ---
 {
-    "title": "An Overview of the Career of Christian Bale: From Child Actor to Method Acting Legend",
-    "description": "This content explores the career of Christian Bale, from his early start as a child actor to his iconic roles as Patrick Bateman, Bruce Wayne, and Dick Cheney. It delves into his method acting approach, his dedication to his roles, and the challenges he faced in his personal life. Despite some setbacks, Bale's talent and commitment to his craft have made him one of the most respected actors in the industry.",
-    "key_points": [
-        "Christian Bale was born in 1974 in Wales and had an early start to his acting career.",
-        "He gained recognition for his breakout role in 'Empire of the Sun' at the age of 13.",
-        "Bale faced challenges with media attention and bullying during his early career.",
-        "He has been known for his extreme method acting approach, including drastic weight fluctuations for roles.",
-        "Bale has received numerous awards and nominations for his performances.",
+    "title": "Jennifer Crumbley Convicted for Role in Son's School Shooting at Oxford High School",
+    "description": "Jennifer Crumbley has been found guilty on all charges, including involuntary manslaughter and gross neglicence related to her son Ethan Crumbley's mass shooting at Oxford High School in Michigan. The prosecution argued that Jennifer and her husband James Crumbley's negligence contributed to their son's ability to carry out the shooting, which resulted in the deaths of four students. Jennifer Crumbley's conviction raises difficult legal questions about parental responsibility and the potential for similar prosecutions in the future, as it marks the first time parents have been held criminally responsible for their child's actions in a school shooting.",
+    "key_facts": [
+        "In 2021, Ethan Crumbley, at 15, killed four and wounded seven at Oxford High School in Michigan. Ethan was charged with 24 counts, including terrorism and first-degree murder, and sentenced to life without parole in 2023.",
+        "Jennifer Crumbley, Ethan's mother, was convicted of involuntary manslaughter for her role in parenting the shooter.",
+        "Prosecutors argued the Crumbleys ignored warning signs and failed to secure the firearm used in the shooting.",
+        "Michigan's felony sentencing guidelines are merely advisory, and grant substantial leeway to the sentencing judge when determining minimum time served before eligibility for parole.",
+        "Due to the unprecedented nature of the conviction, it is difficult to predict the judge's sentence."
     ]
 }
 ---
