@@ -103,10 +103,13 @@ def extract_subtitles(url: str) -> str:
         "noplaylist": True,
     }
 
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        info_dict = ydl.extract_info(url, download=True)
-        video_id = info_dict.get("id")
-        subs_filename = os.path.join(temp_dir.name, f"{video_id}.en.vtt")
+    try:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(url, download=True)
+            video_id = info_dict.get("id")
+            subs_filename = os.path.join(temp_dir.name, f"{video_id}.en.vtt")
+    except yt_dlp.utils.DownloadError:
+        return url
 
     subtitles = ""
     with (
