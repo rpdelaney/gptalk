@@ -1,4 +1,5 @@
 from json.decoder import JSONDecodeError
+from requests.exceptions import HTTPError
 
 
 class GPTValueError(ValueError):
@@ -19,3 +20,7 @@ class GPTSubsNotFoundError(GPTFileNotFoundError):
 
 class GPTJSONDecodeError(JSONDecodeError):
     """We failed to parse JSON."""
+
+
+class GPTHTTPError(HTTPError):
+    """An HTTP error occurred."""
