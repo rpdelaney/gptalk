@@ -1,2 +1,2 @@
 """Constant values."""
-GPT_MODEL_DEFAULT = "gpt-4"
+GPT_MODEL_DEFAULT = "gpt-4-turbo-preview"
