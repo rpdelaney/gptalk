@@ -1,6 +1,6 @@
 """Utility functions and helpers."""
-import sys
 import re
+import sys
 
 from inquirer import Editor, prompt
 
@@ -26,9 +26,11 @@ def is_url(s: str) -> bool:
     """Determine if a given string is a URL.
 
     Args:
+    ----
         s (str): The string to check.
 
     Returns:
+    -------
         bool: True if the string is a URL, False otherwise.
 
     >>> is_url("https://www.openai.com")
@@ -37,6 +39,7 @@ def is_url(s: str) -> bool:
     True
     >>> is_url("Not a URL")
     False
+
     """
     pattern = (
         r"http[s]?://"

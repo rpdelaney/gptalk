@@ -1,5 +1,6 @@
 """Entrypoint for the command-line interface."""
 import sys
+
 from typing import NoReturn
 
 import click
@@ -11,6 +12,7 @@ from .postprocessing import tldr_to_markdown, unfence
 from .preprocessing import extract_subtitles, fetch_url, summarize
 from .talk import talk
 from .utils import get_input
+
 
 deal.activate()
 

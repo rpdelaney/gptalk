@@ -3,10 +3,12 @@ import contextlib
 import os
 import re
 import tempfile
+
 from collections import OrderedDict
 
-import yt_dlp
 import requests
+import yt_dlp
+
 from bs4 import BeautifulSoup as bs
 from readability import Document
 
@@ -48,12 +50,15 @@ def extract_subtitles(url: str) -> str:
     original string.
 
     Args:
+    ----
         url (str): The string to check and process if it's a supported
         URL.
 
     Returns:
+    -------
         str: The extracted and processed subtitles as a string, or the
         original string if it's not a supported URL.
+
     """
     for extractor in yt_dlp.extractor.gen_extractors():
         # The generic extractor always returns suitable, even
@@ -64,11 +69,12 @@ def extract_subtitles(url: str) -> str:
         return url
 
     def vtt2prose(vtt: str) -> str:
-        """
-        Process VTT subtitles into prose.
+        """Process VTT subtitles into prose.
 
-        Returns:
+        Returns
+        -------
             str: The processed prose from the VTT subtitles.
+
         """
         lines_seen: OrderedDict[str, None] = OrderedDict()
         for line in vtt.splitlines():
@@ -114,7 +120,7 @@ def extract_subtitles(url: str) -> str:
     subtitles = ""
     with (
         contextlib.suppress(FileNotFoundError),
-        open(subs_filename, "r", encoding="utf-8") as file,
+        open(subs_filename, encoding="utf-8") as file,
     ):
         subtitles = file.read()
 

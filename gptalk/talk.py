@@ -1,9 +1,11 @@
 import os
 import sys
+
 from time import time
 from typing import TextIO
 
 import deal
+
 from openai import OpenAI
 
 from .postprocessing import T_Postprocessor

@@ -1,17 +1,18 @@
 """Post-processors."""
 import json
 import re
+
+from collections.abc import Callable
 from json.decoder import JSONDecodeError
-from typing import Callable
 
 from .exceptions import GPTJSONDecodeError
+
 
 T_Postprocessor = Callable[[str], str]
 
 
 def unfence(text: str) -> str:
-    """
-    Remove triple backticks from a multi-line string.
+    """Remove triple backticks from a multi-line string.
 
     :param text: A string that may have fenced code blocks.
     :return: A string without fenced code blocks.
@@ -25,8 +26,7 @@ def unfence(text: str) -> str:
 
 
 def tldr_to_markdown(json_data: str) -> str:
-    """
-    Convert a JSON string with a tldr response to Markdown format.
+    """Convert a JSON string with a tldr response to Markdown format.
 
     :param json_data: A JSON string with a tldr.
     :return: A string in Markdown format.

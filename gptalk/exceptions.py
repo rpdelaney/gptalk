@@ -1,4 +1,5 @@
 from json.decoder import JSONDecodeError
+
 from requests.exceptions import HTTPError
 
 

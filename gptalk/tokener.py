@@ -5,7 +5,9 @@ import sys
 
 import deal
 import tiktoken
+
 from tiktoken.core import Encoding
+
 
 _DEFAULT_ENCODING: Encoding = tiktoken.get_encoding("cl100k_base")
 
@@ -19,12 +21,15 @@ def token_split(
     """Split a string into parts of given size without breaking words.
 
     Args:
+    ----
         text (str): Text to split.
         limit (int): Maximum number of tokens per part.
         encoding (tiktoken.Encoding): Encoding to use for tokenization.
 
     Returns:
+    -------
         list[str]: List of text parts.
+
     """
     tokens = encoding.encode(text)
     parts = []
@@ -62,13 +67,16 @@ def get_token_count(text: str, encoding: Encoding = _DEFAULT_ENCODING) -> int:
     """Get the number of tokens in the input string using tiktoken library.
 
     Args:
+    ----
         s (str): The input string.
 
     Returns:
+    -------
         int: The number of tokens in the string.
 
     >>> get_token_count("Hello, World!")
     3
+
     """
     tokens = encoding.encode(text)
     return len(tokens)
@@ -80,7 +88,7 @@ def main() -> None:
     """Give example usage."""
     limit = int(sys.argv[1])
 
-    with open(sys.argv[2], "r") as f:
+    with open(sys.argv[2]) as f:
         text = "\n".join(line for line in f)
 
     split_content = token_split(text, limit, _DEFAULT_ENCODING)
