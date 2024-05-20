@@ -1,4 +1,5 @@
 """Entrypoint for the command-line interface."""
+
 import sys
 
 from typing import NoReturn

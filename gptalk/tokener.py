@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #
 """Helpers for meeting the token limits."""
+
 import sys
 
 import deal
@@ -82,7 +83,7 @@ def get_token_count(text: str, encoding: Encoding = _DEFAULT_ENCODING) -> int:
     return len(tokens)
 
 
-@deal.has('io', 'read', 'stdout')
+@deal.has("io", "read", "stdout")
 @deal.safe
 def main() -> None:
     """Give example usage."""
