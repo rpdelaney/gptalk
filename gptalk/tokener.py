@@ -1,12 +1,9 @@
-#!/usr/bin/env python
-#
 """Helpers for meeting the token limits."""
 
 import sys
 
 import deal
 import tiktoken
-
 from tiktoken.core import Encoding
 
 

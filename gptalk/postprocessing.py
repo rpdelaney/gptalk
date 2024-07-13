@@ -2,7 +2,6 @@
 
 import json
 import re
-
 from collections.abc import Callable
 from json.decoder import JSONDecodeError
 

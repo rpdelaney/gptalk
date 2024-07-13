@@ -1,3 +1,5 @@
+"""Exceptions we might want to raise."""
+
 from json.decoder import JSONDecodeError
 
 from requests.exceptions import HTTPError

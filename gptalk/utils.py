@@ -17,10 +17,11 @@ def get_input(prompt_message: str = "") -> str:
     else:
         result = sys.stdin.read().strip()
 
-    if len(result) > 0:
-        return result
-    else:
-        raise GPTNullInputError("User input was zero-length. Aborting.")
+    if len(result) <= 0:
+        msg = "User input was zero-length. Aborting."
+        raise GPTNullInputError(msg)
+
+    return result
 
 
 def is_url(s: str) -> bool:

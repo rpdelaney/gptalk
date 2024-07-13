@@ -4,16 +4,13 @@ import contextlib
 import os
 import re
 import tempfile
-
 from collections import OrderedDict
 
 import requests
 import yt_dlp
-
-from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup as Bs
 from readability import Document
 
-from .exceptions import GPTSubsNotFoundError
 from .utils import is_url
 
 
@@ -24,7 +21,7 @@ def fetch_url(url: str, timeout: int = 10) -> str:
 
     response = requests.get(url, timeout=timeout)
     response.raise_for_status()
-    soup = bs(response.content, "html.parser")
+    soup = Bs(response.content, "html.parser")
 
     return soup.get_text()
 
@@ -34,7 +31,7 @@ def summarize(content: str) -> str:
     doc = Document(content)
 
     title: str = doc.short_title()
-    summary: str = bs(doc.summary(), "lxml").text
+    summary: str = Bs(doc.summary(), "lxml").text
 
     return f"{title}\n{summary}"
 
