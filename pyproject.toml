@@ -37,14 +37,6 @@ lxml = {extras = ["html-clean"], version = ">=5.2.1"}
 pdfminer-six = "^20240706"
 
 [tool.poetry.group.dev.dependencies]
-black = "*"
-flake8 = "*"
-flake8-annotations-complexity = "*"
-flake8-bandit = "*"
-flake8-bugbear = "*"
-flake8-comprehensions = "*"
-flake8-docstrings = "*"
-flake8-simplify = "*"
 hypothesis = "*"
 mypy = "*"
 pytest = "*"
@@ -55,21 +47,9 @@ types-requests = "*"
 types-regex = "*"
 deal-solver = "*"
 
-[tool.poetry.dev-dependencies.isort]
-version = "*"
-extras = [ "pyproject",]
-
 [tool.black]
 line-length = 79
 target_version = [ "py310",]
-
-[tool.isort]
-combine_star = true
-indent = "    "
-length_sort = false
-line_length = 79
-multi_line_output = 3
-include_trailing_comma = true  # this prevents isort from fighting with black
 
 [tool.mypy]
 plugins = ["deal.mypy"]
