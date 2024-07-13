@@ -46,6 +46,7 @@ types-beautifulsoup4 = "*"
 types-requests = "*"
 types-regex = "*"
 deal-solver = "*"
+ruff = "*"
 
 [tool.black]
 line-length = 79
