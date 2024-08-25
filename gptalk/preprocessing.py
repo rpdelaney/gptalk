@@ -1,6 +1,7 @@
 """Pre-processors."""
 
 import contextlib
+import io
 import os
 import re
 import tempfile
@@ -9,6 +10,7 @@ from collections import OrderedDict
 import requests
 import yt_dlp
 from bs4 import BeautifulSoup as Bs
+from pdftotext import PDF
 from readability import Document
 
 from .utils import is_url
@@ -21,6 +23,12 @@ def fetch_url(url: str, timeout: int = 10) -> str:
 
     response = requests.get(url, timeout=timeout)
     response.raise_for_status()
+    content_type = response.headers.get("Content-Type")
+
+    if content_type == "application/pdf":
+        text = "\n\n".join(PDF(io.BytesIO(response.content)))
+        return str(text)
+
     soup = Bs(response.content, "html.parser")
 
     return soup.get_text()

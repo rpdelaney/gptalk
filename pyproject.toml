@@ -34,7 +34,7 @@ yt-dlp = ">=2023.11.16"
 requests = ">=2.31.0"
 beautifulsoup4 = ">=4.12.2"
 lxml = {extras = ["html-clean"], version = ">=5.2.1"}
-pdfminer-six = "^20240706"
+pdftotext = ">=2.2.2"
 
 [tool.poetry.group.dev.dependencies]
 hypothesis = "*"
