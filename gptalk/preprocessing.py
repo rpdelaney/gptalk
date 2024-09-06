@@ -2,10 +2,10 @@
 
 import contextlib
 import io
-import os
 import re
 import tempfile
 from collections import OrderedDict
+from pathlib import Path
 
 import requests
 import yt_dlp
@@ -111,7 +111,7 @@ def extract_subtitles(url: str) -> str:
         "subtitleslangs": ["en"],
         "subtitlesformat": "vtt",
         "logger": YtLogger(),
-        "outtmpl": os.path.join(temp_dir.name, "%(id)s.%(ext)s"),
+        "outtmpl": Path(temp_dir.name) / Path("%(id)s.%(ext)s"),
         "noplaylist": True,
     }
 
@@ -119,14 +119,14 @@ def extract_subtitles(url: str) -> str:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(url, download=True)
             video_id = info_dict.get("id")
-            subs_filename = os.path.join(temp_dir.name, f"{video_id}.en.vtt")
+            subs_filename = Path(temp_dir.name) / Path(f"{video_id}.en.vtt")
     except yt_dlp.utils.DownloadError:
         return url
 
     subtitles = ""
     with (
         contextlib.suppress(FileNotFoundError),
-        open(subs_filename, encoding="utf-8") as file,
+        Path.open(subs_filename, encoding="utf-8") as file,
     ):
         subtitles = file.read()
 
