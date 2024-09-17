@@ -46,6 +46,7 @@ types-requests = "*"
 types-regex = "*"
 deal-solver = "*"
 ruff = "*"
+yt-dlp-types = ">=0.0.7"
 
 [tool.black]
 line-length = 79
