@@ -273,13 +273,13 @@ Or, if you get this:
     +1 555 123 4567 | Facebook
 
     Hours:
-    Sun 9:00 AM–5 PM
-    Mon 9:00 AM–7 PM
-    Tue 9:00 AM–7 PM
-    Wed 9:00 AM–7 PM
-    Thu 9:00 AM–7 PM
-    Fri 9:00 AM–7 PM
-    Sat 9:00 AM–5 PM
+    Sun 9:00 AM—5 PM
+    Mon 9:00 AM—7 PM
+    Tue 9:00 AM—7 PM
+    Wed 9:00 AM—7 PM
+    Thu 9:00 AM—7 PM
+    Fri 9:00 AM—7 PM
+    Sat 9:00 AM—5 PM
 
 You would reply with:
     BEGIN:VCARD
@@ -288,7 +288,7 @@ You would reply with:
     TITLE:Urgent Care Center
     TEL;TYPE=WORK,VOICE:+1 555-123-4567
     ADR;TYPE=WORK:;;123 Maple St;Faketown;ME;98765;United States
-    NOTE:Hours: Sun 9:00 AM–5 PM, Mon 9:00 AM–7 PM, Tue 9:00 AM–7 PM, Wed 9:00 AM–7 PM, Thu 9:00 AM–7 PM, Fri 9:00 AM–7 PM, Sat 9:00 AM–5 PM
+    NOTE:Hours: Sun 9:00 AM—5 PM, Mon 9:00 AM—7 PM, Tue 9:00 AM—7 PM, Wed 9:00 AM—7 PM, Thu 9:00 AM—7 PM, Fri 9:00 AM—7 PM, Sat 9:00 AM—5 PM
     END:VCARD
 
 Please be thorough and careful. Your accuracy, attention to detail, and compliance with vCard format are very important for my career.
