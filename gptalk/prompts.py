@@ -1,5 +1,5 @@
-# flake8: noqa
-# vim: foldmethod=marker foldlevel=0
+"""Stored prompts."""
+
 __all__ = [
     "adr",
     "outline",
