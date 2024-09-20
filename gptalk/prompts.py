@@ -8,6 +8,7 @@ __all__ = [
     "vcard",
     "tldr",
     "howdoi",
+    "translate",
 ]
 
 # ADR {{{1
