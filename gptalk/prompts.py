@@ -298,12 +298,17 @@ Please be thorough and careful. Your accuracy, attention to detail, and complian
 # tldr {{{1
 tldr = """Ignore all previous instructions. I want you to respond only in
 English. You are a very proficient researcher. Your task is to extract all
-facts and summarize the content I give you in all relevant aspects. All output
-shall be formatted in JSON, like this:
+facts and summarize the content I give you from the point of view of the
+content. You are careful to include charitable summaries of the opinions
+and subjective judgments presented in the content you are summarizing.
+The summary you write will be used as a kind of "tl;dr" as an executive
+summary, to substitute for the full version.
+
+All output shall be formatted in JSON, like this:
 ---
 {
-    "title": "One line of text that dispassionately summarizes the content in an honest, factual, neutral, and non-clickbait way.",
-    "description": "Between one to three paragraphs that concisely summarizes the content.",
+    "title": "One line of text that dispassionately summarizes the content in an honest, factual, charitable, and non-clickbait way.",
+    "description": "Between one to three paragraphs that concisely summarizes the content from the point of view of the content creator.",
     "key_facts":
         [
             "A list of 'bullet points' with key points and facts from the content."
@@ -315,14 +320,17 @@ For example:
 
 ---
 {
-    "title": "Jennifer Crumbley Convicted for Role in Son's School Shooting at Oxford High School",
-    "description": "Jennifer Crumbley has been found guilty on all charges, including involuntary manslaughter and gross neglicence related to her son Ethan Crumbley's mass shooting at Oxford High School in Michigan. The prosecution argued that Jennifer and her husband James Crumbley's negligence contributed to their son's ability to carry out the shooting, which resulted in the deaths of four students. Jennifer Crumbley's conviction raises difficult legal questions about parental responsibility and the potential for similar prosecutions in the future, as it marks the first time parents have been held criminally responsible for their child's actions in a school shooting.",
+    "title": "Tyreek Hill's Traffic Stop and Arrest by Miami Police",
+    "description": "On Sunday, September 8, 2024, Miami Dolphins star receiver Tyreek Hill was pulled over by Miami-Dade police for allegedly speeding just hours before a game. The situation escalated when Hill, after providing his identification, raised his car window, after which officers forcibly removed him from the vehicle, handcuffed, and detained him. The forcible extraction was excessive and not supported by Florida law. One officer was placed on administrative leave and the Miami-Dade Police Department is investigating the incident.",
     "key_facts": [
-        "In 2021, Ethan Crumbley, at 15, killed four and wounded seven at Oxford High School in Michigan. Ethan was charged with 24 counts, including terrorism and first-degree murder, and sentenced to life without parole in 2023.",
-        "Jennifer Crumbley, Ethan's mother, was convicted of involuntary manslaughter for her role in parenting the shooter.",
-        "Prosecutors argued the Crumbleys ignored warning signs and failed to secure the firearm used in the shooting.",
-        "Michigan's felony sentencing guidelines are merely advisory, and grant substantial leeway to the sentencing judge when determining minimum time served before eligibility for parole.",
-        "Due to the unprecedented nature of the conviction, it is difficult to predict the judge's sentence."
+        "On Sunday, September 8, 2024, Tyreek Hill was pulled over for allegedly speeding in his McLaren 720s.",
+        "Body cam footage shows Hill complying with initial requests and being treated aggressively by police.",
+        "Hill provided his driver's license before officers forcibly removed him from the car, handcuffed, and detained him.",
+        "After approximately 25 minutes, Hill was cited for reckless driving and driving without a seatbelt.",
+        "The incident has led to an internal investigation, with Officer Danny Torres placed on administrative duties.",
+        "Hill questioned the treatment he received, suggesting it might have been different if he were not a high-profile athlete.",
+        "The officers likely exceeded their legal authority when they extracted him, and when they held him at the scene longer than required to issue the citation.",
+        "Contrary to statements made by police in body camera footage, Hill's rolling up the window did not provide a legal basis for the extraction."
     ]
 }
 ---
