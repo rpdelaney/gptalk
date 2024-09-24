@@ -111,7 +111,7 @@ def extract_subtitles(url: str) -> str:
         "subtitleslangs": ["en"],
         "subtitlesformat": "vtt",
         "logger": YtLogger(),
-        "outtmpl": Path(temp_dir.name) / Path("%(id)s.%(ext)s"),
+        "outtmpl": str(Path(temp_dir.name) / Path("%(id)s.%(ext)s")),
         "noplaylist": True,
     }
 
