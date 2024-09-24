@@ -6,6 +6,7 @@ import re
 import tempfile
 from collections import OrderedDict
 from pathlib import Path
+from urllib.parse import urlparse
 
 import requests
 import yt_dlp
@@ -21,7 +22,30 @@ def fetch_url(url: str, timeout: int = 10) -> str:
     if not is_url(url):
         return url
 
-    response = requests.get(url, timeout=timeout)
+    response = requests.get(
+        url,
+        timeout=timeout,
+        headers={
+            "Accept": (
+                "text/html,application/xhtml+xml,"
+                "application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"
+            ),
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "en-US,en;q=0.5",
+            "Host": urlparse(url).netloc,
+            "TE": "trailers",
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; rv:109.0) "
+                "Gecko/20100101 Firefox/115.0"
+            ),
+            "COOKIE": "p=-2",
+            "SEC-FETCH-DEST": "document",
+            "SEC-FETCH-MODE": "navigate",
+            "SEC-FETCH-SITE": "none",
+            "SEC-FETCH-USER": "?1",
+            "UPGRADE-INSECURE-REQUESTS": "1",
+        },
+    )
     response.raise_for_status()
     content_type = response.headers.get("Content-Type")
 
