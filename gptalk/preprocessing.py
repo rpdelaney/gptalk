@@ -129,7 +129,6 @@ def extract_subtitles(url: str) -> str:
 
     temp_dir = tempfile.TemporaryDirectory()
     ydl_opts = {
-        "format": "best",
         "skip_download": True,
         "writeautomaticsub": True,
         "subtitleslangs": ["en"],
