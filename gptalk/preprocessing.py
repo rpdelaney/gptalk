@@ -13,6 +13,7 @@ import yt_dlp
 from bs4 import BeautifulSoup as Bs
 from pdftotext import PDF
 from readability import Document
+from yt_dlp.utils import DownloadError
 
 from .utils import is_url
 
@@ -143,7 +144,7 @@ def extract_subtitles(url: str) -> str:
             info_dict = ydl.extract_info(url, download=True)
             video_id = info_dict.get("id")
             subs_filename = Path(temp_dir.name) / Path(f"{video_id}.en.vtt")
-    except yt_dlp.utils.DownloadError:
+    except DownloadError:
         return url
 
     subtitles = ""
