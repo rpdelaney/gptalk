@@ -2,13 +2,14 @@
 
 __all__ = [
     "adr",
+    "explain",
+    "howdoi",
     "outline",
     "subsfix",
     "ticket",
-    "vcard",
     "tldr",
-    "howdoi",
     "translate",
+    "vcard",
 ]
 
 # ADR {{{1
