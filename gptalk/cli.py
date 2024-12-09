@@ -8,7 +8,7 @@ import deal
 
 from . import prompts
 from .constants import GPT_MODEL_DEFAULT
-from .postprocessing import tldr_to_markdown, unfence
+from .postprocessing import strlist_to_text, tldr_to_markdown, unfence
 from .preprocessing import extract_subtitles, fetch_url, summarize
 from .talk import talk
 from .utils import get_input
@@ -145,6 +145,23 @@ def explain() -> NoReturn:
             prompt_system=prompts.explain,
             data_user=data,
             model=GPT_MODEL_DEFAULT,
+        )
+    )
+
+    sys.exit(0)
+
+
+@cli.command()
+def textwall() -> NoReturn:
+    """Break up walls of text."""
+    data = get_input()
+
+    print(
+        talk(
+            prompt_system=prompts.textwall,
+            data_user=data,
+            model=GPT_MODEL_DEFAULT,
+            postprocessors=[unfence, strlist_to_text],
         )
     )
 

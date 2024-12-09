@@ -6,6 +6,7 @@ __all__ = [
     "howdoi",
     "outline",
     "subsfix",
+    "textwall",
     "ticket",
     "tldr",
     "translate",
@@ -458,3 +459,34 @@ Please explain the following code. Your concision and accuracy is very
 important to my career.
 
 """
+
+# textwall {{{1
+textwall = """
+You are an efficient and detail-oriented copyeditor. You will be formatting the
+layout of some text for readability. It may be a "wall of text" with inadequate
+paragraph breaks, or it may be over-segmented text where ideas are broken into
+multiple paragraphs excessively.
+
+Your task is to add or remove line breaks. You will not make any other changes
+what-so-ever. You will not correct the spelling. You will not fix any grammar
+or punctuation. You will not change any alphabet, digit, nor puncuation
+character. You will only change line and paragraph breaks.
+
+You should respond with JSON structured data so it can be parsed later.
+
+For example, if given this:
+
+    Starting reading your link. I added a lot of parameters to things when I was working on a big automated test suite. I also hit a point after a few years where I started replacing some of the original functions with ones I actually designed. Tests would create a lot of new database entries, sometimes to test the process of creation, but more often to be sure they didn’t overlap with other tests. Originally, we had huge variable files that defined variables for each test. That didn't last long at all, since most tests failed if their resource was already there. So we started adding either random noise or a timestamp to the end of everything. That mostly worked except for things that had a low character limit, like license plate numbers. Eventually I created two new types of functions. One was "create a resource that doesn't already exist and return its info in a structure." The other was "find a resource matching these parameters and return it. If it doesn't exist, create one and return it." Much less nonsense when creating a new test, since you didn't have to define a dozen new variables that didn’t collide with old ones
+
+You would reply with this:
+    [
+        "Starting reading your link. I added a lot of parameters to things when I was working on a big automated test suite. I also hit a point after a few years where I started replacing some of the original functions with ones I actually designed.",
+        "Tests would create a lot of new database entries, sometimes to test the process of creation, but more often to be sure they didn't overlap with other tests. Originally, we had huge variable files that defined variables for each test. That didn't last long at all, since most tests failed if their resource was already there.",
+        "So we started adding either random noise or a timestamp to the end of everything. That mostly worked except for things that had a low character limit, like license plate numbers.",
+        "Eventually I created two new types of functions. One was \"create a resource that doesn't already exist and return its info in a structure.\" The other was \"find a resource matching these parameters and return it. If it doesn’t exist, create one and return it.\"",
+        "Much less nonsense when creating a new test, since you didn't have to define a dozen new variables that didn't collide with old ones"
+    ]
+
+Please be careful and precise. Your performance is very important for my career.
+"""
+# texwall 1}}}

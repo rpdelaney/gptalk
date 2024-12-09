@@ -58,3 +58,18 @@ def tldr_to_markdown(json_data: str) -> str:
     markdown_text += "\n".join(f"- {point}" for point in data["key_facts"])
 
     return markdown_text
+
+
+def strlist_to_text(json_data: str) -> str:
+    """Convert a list of strings to unstructured text."""
+    try:
+        data = json.loads(json_data)
+    except JSONDecodeError as jde:
+        msg = f"Data was: {json_data}"
+        raise GPTJSONDecodeError(
+            msg,
+            doc=jde.doc,
+            pos=jde.pos,
+        ) from jde
+
+    return "\n".join(data)
