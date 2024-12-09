@@ -45,8 +45,9 @@ def tldr_to_markdown(json_data: str) -> str:
     try:
         data = json.loads(json_data)
     except JSONDecodeError as jde:
+        msg = f"Data was: {json_data}"
         raise GPTJSONDecodeError(
-            f"Data was: {json_data}",
+            msg,
             doc=jde.doc,
             pos=jde.pos,
         ) from jde
