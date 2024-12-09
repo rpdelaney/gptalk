@@ -72,4 +72,4 @@ def strlist_to_text(json_data: str) -> str:
             pos=jde.pos,
         ) from jde
 
-    return "\n".join(data)
+    return "\n\n".join(data)
