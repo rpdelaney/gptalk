@@ -1,20 +1,17 @@
 ## {{ citation }}
 
 ### Parties
-
-{%- for party in parties %}
+{% for party in parties %}
 - {{ party.name }} -- {{ party.role | join("-") }}
 {%- endfor %}
 
 ### Facts
-
-{%- for fact in facts %}
+{% for fact in facts %}
 - {{ fact }}
 {%- endfor %}
 
 ### Prior proceedings
-
-{%- for proceeding in prior_proceedings %}
+{% for proceeding in prior_proceedings %}
 - {{ proceeding }}
 {%- endfor %}
 
