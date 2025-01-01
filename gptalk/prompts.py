@@ -495,6 +495,11 @@ Please be careful and precise. Your performance is very important for my career.
 brief = """
 I will provide you with the text of a court ruling. Your task is to write a concise case brief in the IRAC format, which stands for Issue, Rule, Application, and Conclusion. Structure the brief as follows:
 
+    Citation: An appropriate citation for the case.
+    Parties: The parties named in the case and their role(s) in the case.
+    Narrative: A list of facts about the case.
+    Prior Proceedings: A brief summary of the legal actions (such as bringing a lawsuit), court hearings, or trials, if any, that preceded this one. STRICTLY EXCLUDE facts _of the case itself_, as these are not legal proceedings that must have taken place afterward.
+    Facts: The facts of the case itself.
     Issue: Identify the main legal question or questions the court addressed.
     Rule: Summarize the relevant legal principles, statutes, or precedents the court applied to resolve the issue.
     Application: Analyze how the court applied the rule to the facts of the case. Include the reasoning and logic behind the decision.
@@ -519,16 +524,14 @@ Structure your response in JSON format. For example:
                 "role": ["Defendant", "Appellee"]
             }
         ],
-        "prior_proceedings": [
-            "Eddie Rael sued Emilio and Manuel Cadena for civil battery.",
-            "The trial court, sitting without a jury, found Emilio jointly liable with Manuel for the battery.",
-            "Emilio appealed the judgment of the trial court."
-        ],
-        "facts": [
-            "While visiting Emilio Cadena's home, Eddie Rael was beaten by Emilio's nephew, Manuel Cadena.",
-            "After the attack began, Emilio yelled to Manuel \"kill him!\" and \"hit him more!\"",
-            "Emilio never actually struck Rael nor physically participated in the battery.",
-            "Rael was hospitalized as a result of the beating."
+        "narrative": [
+            {"type": "fact", "data": "While visiting Emilio Cadena's home, Eddie Rael was beaten by Emilio's nephew, Manuel Cadena."},
+            {"type": "fact", "data": "After the attack began, Emilio yelled to Manuel \"kill him!\" and \"hit him more!\""},
+            {"type": "fact", "data": "Emilio never actually struck Rael nor physically participated in the battery."},
+            {"type": "fact", "data": "Rael was hospitalized as a result of the beating.}"
+            {"type": "prior_proceeding", "data": "Eddie Rael sued Emilio and Manuel Cadena for civil battery."},
+            {"type": "prior_proceeding", "data": "The trial court, sitting without a jury, found Emilio jointly liable with Manuel for the battery."},
+            {"type": "prior_proceeding", "Emilio appealed the judgment of the trial court.}"
         ],
         "issue": "Under New Mexico tort law, does liability for battery arise when an individual, present during the battery, encourages the perpetrator of the battery by yelling \"kill him\" and \"hit him more\" thus inciting the perpetration of the battery though he takes no actual part in the physical beating?",
         "rule": "An individual may be liable for battery by encouraging or inciting the perpetrator by words or acts.",

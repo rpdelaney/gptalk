@@ -196,8 +196,16 @@ def brief() -> NoReturn:
         template.render(
             citation=r["citation"],
             parties=r["parties"],
-            facts=r["facts"],
-            prior_proceedings=r["prior_proceedings"],
+            facts=[
+                item["data"]
+                for item in r["narrative"]
+                if item["type"] == "fact"
+            ],
+            prior_proceedings=[
+                item["data"]
+                for item in r["narrative"]
+                if item["type"] == "prior_proceeding"
+            ],
             issue=r["issue"],
             rule=r["rule"],
             application=r["application"],
