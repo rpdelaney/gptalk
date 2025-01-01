@@ -7,7 +7,7 @@ from typing import NoReturn
 
 import click
 import deal
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from . import prompts
 from .constants import GPT_MODEL_DEFAULT
@@ -183,12 +183,12 @@ def brief() -> NoReturn:
             model=GPT_MODEL_DEFAULT,
             preprocessors=[fetch_url],
             postprocessors=[unfence],
-        )
+        ),
     )
 
     env = Environment(
         loader=FileSystemLoader(Path(__file__).parent / "templates"),
-        autoescape=True,
+        autoescape=select_autoescape(["html", "xml"]),
     )
     template = env.get_template("brief.md")
 
