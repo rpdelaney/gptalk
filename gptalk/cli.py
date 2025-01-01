@@ -1,10 +1,13 @@
 """Entrypoint for the command-line interface."""
 
+import json
 import sys
+from pathlib import Path
 from typing import NoReturn
 
 import click
 import deal
+from jinja2 import Environment, FileSystemLoader
 
 from . import prompts
 from .constants import GPT_MODEL_DEFAULT
@@ -162,6 +165,43 @@ def textwall() -> NoReturn:
             data_user=data,
             model=GPT_MODEL_DEFAULT,
             postprocessors=[unfence, strlist_to_text],
+        )
+    )
+
+    sys.exit(0)
+
+
+@cli.command()
+def brief() -> NoReturn:
+    """Write a case brief based on a legal ruling or opinion."""
+    data = get_input()
+
+    r = json.loads(
+        talk(
+            prompt_system=prompts.brief,
+            data_user=data,
+            model=GPT_MODEL_DEFAULT,
+            preprocessors=[fetch_url],
+            postprocessors=[unfence],
+        )
+    )
+
+    env = Environment(
+        loader=FileSystemLoader(Path(__file__).parent / "templates"),
+        autoescape=True,
+    )
+    template = env.get_template("brief.md")
+
+    print(
+        template.render(
+            citation=r["citation"],
+            parties=r["parties"],
+            facts=r["facts"],
+            prior_proceedings=r["prior_proceedings"],
+            issue=r["issue"],
+            rule=r["rule"],
+            application=r["application"],
+            conclusion=r["conclusion"],
         )
     )
 
