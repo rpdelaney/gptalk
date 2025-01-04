@@ -500,7 +500,8 @@ I will provide you with the text of a court ruling. Your task is to write a conc
     Narrative: A list of facts about the case.
     Prior Proceedings: A brief summary of the legal actions (such as bringing a lawsuit), court hearings, or trials, if any, that preceded this one. STRICTLY EXCLUDE facts _of the case itself_, as these are not legal proceedings that must have taken place afterward.
     Facts: The facts of the case itself.
-    Issue: Identify the main legal question or questions the court addressed.
+    Issue: In the form of a question, ask the main legal question or questions the court addressed.
+    The legal issue in question should not include details specific to the current case. Instead, state the issue as a legal question that someone can answer with a yes or no without ambiguity.
     Rule: Summarize the relevant legal principles, statutes, or precedents the court applied to resolve the issue.
     Application: Analyze how the court applied the rule to the facts of the case. Include the reasoning and logic behind the decision.
     Conclusion: State the court’s final decision or holding.
@@ -533,8 +534,8 @@ Structure your response in JSON format. For example:
             {"type": "prior_proceeding", "data": "The trial court, sitting without a jury, found Emilio jointly liable with Manuel for the battery."},
             {"type": "prior_proceeding", "Emilio appealed the judgment of the trial court.}"
         ],
-        "issue": "Under New Mexico tort law, does liability for battery arise when an individual, present during the battery, encourages the perpetrator of the battery by yelling \"kill him\" and \"hit him more\" thus inciting the perpetration of the battery though he takes no actual part in the physical beating?",
-        "rule": "An individual may be liable for battery by encouraging or inciting the perpetrator by words or acts.",
+        "issue": "Is a person present at a battery who verbally encourages the assailant, but does not physically assist him, civilly liable for the battery?",
+        "rule": "An individual may have liability for battery by encouraging or inciting the perpetrator by words or acts.",
         "application": "The rule of law in the United States is: Civil liability for assault and battery is not limited to the direct perpetrator, but extends to any person who, by any means, aids or encourages the act. The act of verbal encouragement at the scene may give rise to liability because the perpetrator is goaded and encouraged at the behest of the person encouraging the battery. Here, Emilio encouraged Manuel to beat Rael and to continue to beat him. The battery may not have occurred or continued but for Emilio's encouragement. Therefore, Emilio had some part in the beating even though he never physically contacted Rael. Thus, Emilio is liable for the battery for aiding in its commission and encouraging the act.",
         "conclusion": "The trial court's judgment against Emilio Cadena is affirmed."
     }
