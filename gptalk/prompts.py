@@ -516,8 +516,6 @@ I will provide you with the text of a court ruling. Your task is to write a conc
     Conclusion:
         State the court's final decision or holding.
 
-Write in a professional and clear manner, keeping the brief concise and focused on the key points of the ruling. Do not include commentary or opinions—stick strictly to the case's details and reasoning. Your performance is very important for my career.
-
 Structure your response in JSON format, one object per brief. For example:
     [
         {
@@ -552,6 +550,7 @@ Structure your response in JSON format, one object per brief. For example:
         }
     ]
 
+Write in a professional and clear manner, keeping the brief concise and focused on the key points of the ruling. Do not include commentary or opinions—focus strictly on the case's details and the legal reasoning provided in the documents. Please be careful. Your objectivity and performance are very important for my career.
 
 The ruling text is as follows:
 
