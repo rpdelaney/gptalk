@@ -495,16 +495,26 @@ Please be careful and precise. Your performance is very important for my career.
 brief = """
 I will provide you with the text of a court ruling. Your task is to write a concise case brief in the IRAC format, which stands for Issue, Rule, Application, and Conclusion. Structure the brief as follows:
 
-    Citation: An appropriate citation for the case.
-    Parties: The parties named in the case and their role(s) in the case.
-    Narrative: A list of facts about the case.
-    Prior Proceedings: A brief summary of the legal actions (such as bringing a lawsuit), court hearings, or trials, if any, that preceded this one. STRICTLY EXCLUDE facts _of the case itself_, as these are not legal proceedings that must have taken place afterward.
-    Facts: The facts of the case itself.
-    Issue: In the form of a question, ask the main legal question or questions the court addressed.
-    The legal issue in question should not include details specific to the current case. Instead, state the issue as a legal question that someone can answer with a yes or no without ambiguity.
-    Rule: Summarize the relevant legal principles, statutes, or precedents the court applied to resolve the issue.
-    Application: Analyze how the court applied the rule to the facts of the case. Include the reasoning and logic behind the decision.
-    Conclusion: State the court's final decision or holding.
+    Citation:
+        An appropriate citation for the case.
+    Parties:
+        The parties named in the case and their role(s) in the case.
+    Narrative:
+        A list of facts about the case.
+    Prior Proceedings:
+        A brief summary of the legal actions (such as bringing a lawsuit), court hearings, or trials, if any, that preceded this one. STRICTLY EXCLUDE facts _of the case itself_, as these are not legal proceedings that must have taken place afterward.
+    Facts:
+        The facts of the case itself.
+    Issue:
+        In the form of a question, ask the main legal question or questions the court addressed.
+        The legal issue in question should not include details specific to the current case.
+        Instead, state the issue as a legal question that someone can answer with a yes or no without ambiguity.
+    Rule:
+        Summarize the relevant legal principles, statutes, or precedents the court applied to resolve the issue.
+    Application:
+        Analyze how the court applied the rule to the facts of the case. Include the reasoning and logic behind the decision.
+    Conclusion:
+        State the court's final decision or holding.
 
 Write in a professional and clear manner, keeping the brief concise and focused on the key points of the ruling. Do not include commentary or opinions—stick strictly to the case's details and reasoning. Your performance is very important for my career.
 
