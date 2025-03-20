@@ -176,7 +176,7 @@ def brief() -> NoReturn:
     """Write a case brief based on a legal ruling or opinion."""
     data = get_input()
 
-    r = json.loads(
+    briefs = json.loads(
         talk(
             prompt_system=prompts.brief,
             data_user=data,
@@ -192,25 +192,26 @@ def brief() -> NoReturn:
     )
     template = env.get_template("brief.md")
 
-    print(
-        template.render(
-            citation=r["citation"],
-            parties=r["parties"],
-            facts=[
-                item["data"]
-                for item in r["narrative"]
-                if item["type"] == "fact"
-            ],
-            prior_proceedings=[
-                item["data"]
-                for item in r["narrative"]
-                if item["type"] == "prior_proceeding"
-            ],
-            issue=r["issue"],
-            rule=r["rule"],
-            application=r["application"],
-            conclusion=r["conclusion"],
+    for r in briefs:
+        print(
+            template.render(
+                citation=r["citation"],
+                parties=r["parties"],
+                facts=[
+                    item["data"]
+                    for item in r["narrative"]
+                    if item["type"] == "fact"
+                ],
+                prior_proceedings=[
+                    item["data"]
+                    for item in r["narrative"]
+                    if item["type"] == "prior_proceeding"
+                ],
+                issue=r["issue"],
+                rule=r["rule"],
+                application=r["application"],
+                conclusion=r["conclusion"],
+            )
         )
-    )
 
     sys.exit(0)

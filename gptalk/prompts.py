@@ -504,41 +504,43 @@ I will provide you with the text of a court ruling. Your task is to write a conc
     The legal issue in question should not include details specific to the current case. Instead, state the issue as a legal question that someone can answer with a yes or no without ambiguity.
     Rule: Summarize the relevant legal principles, statutes, or precedents the court applied to resolve the issue.
     Application: Analyze how the court applied the rule to the facts of the case. Include the reasoning and logic behind the decision.
-    Conclusion: State the court’s final decision or holding.
+    Conclusion: State the court's final decision or holding.
 
 Write in a professional and clear manner, keeping the brief concise and focused on the key points of the ruling. Do not include commentary or opinions—stick strictly to the case's details and reasoning. Your performance is very important for my career.
 
-Structure your response in JSON format. For example:
-    {
-        "citation": "Rael v. Cadena, 93 N.M. 684, 604 P.2d 822 (Ct. App. 1979)",
-        "parties": [
-            {
-                "name": "Eddie Rael",
-                "role": ["Plaintiff", "Appellee"]
-            },
-            {
-                "name": "Emilio Cadena",
-                "role": ["Defendant", "Appellee"]
-            },
-            {
-                "name": "Manuel Cadena",
-                "role": ["Defendant", "Appellee"]
-            }
-        ],
-        "narrative": [
-            {"type": "fact", "data": "While visiting Emilio Cadena's home, Eddie Rael was beaten by Emilio's nephew, Manuel Cadena."},
-            {"type": "fact", "data": "After the attack began, Emilio yelled to Manuel \"kill him!\" and \"hit him more!\""},
-            {"type": "fact", "data": "Emilio never actually struck Rael nor physically participated in the battery."},
-            {"type": "fact", "data": "Rael was hospitalized as a result of the beating.}"
-            {"type": "prior_proceeding", "data": "Eddie Rael sued Emilio and Manuel Cadena for civil battery."},
-            {"type": "prior_proceeding", "data": "The trial court, sitting without a jury, found Emilio jointly liable with Manuel for the battery."},
-            {"type": "prior_proceeding", "Emilio appealed the judgment of the trial court.}"
-        ],
-        "issue": "Is a person present at a battery who verbally encourages the assailant, but does not physically assist him, civilly liable for the battery?",
-        "rule": "An individual may have liability for battery by encouraging or inciting the perpetrator by words or acts.",
-        "application": "The rule of law in the United States is: Civil liability for assault and battery is not limited to the direct perpetrator, but extends to any person who, by any means, aids or encourages the act. The act of verbal encouragement at the scene may give rise to liability because the perpetrator is goaded and encouraged at the behest of the person encouraging the battery. Here, Emilio encouraged Manuel to beat Rael and to continue to beat him. The battery may not have occurred or continued but for Emilio's encouragement. Therefore, Emilio had some part in the beating even though he never physically contacted Rael. Thus, Emilio is liable for the battery for aiding in its commission and encouraging the act.",
-        "conclusion": "The trial court's judgment against Emilio Cadena is affirmed."
-    }
+Structure your response in JSON format, one object per brief. For example:
+    [
+        {
+            "citation": "Rael v. Cadena, 93 N.M. 684, 604 P.2d 822 (Ct. App. 1979)",
+            "parties": [
+                {
+                    "name": "Eddie Rael",
+                    "role": ["Plaintiff", "Appellee"]
+                },
+                {
+                    "name": "Emilio Cadena",
+                    "role": ["Defendant", "Appellee"]
+                },
+                {
+                    "name": "Manuel Cadena",
+                    "role": ["Defendant", "Appellee"]
+                }
+            ],
+            "narrative": [
+                {"type": "fact", "data": "While visiting Emilio Cadena's home, Eddie Rael was beaten by Emilio's nephew, Manuel Cadena."},
+                {"type": "fact", "data": "After the attack began, Emilio yelled to Manuel \"kill him!\" and \"hit him more!\""},
+                {"type": "fact", "data": "Emilio never actually struck Rael nor physically participated in the battery."},
+                {"type": "fact", "data": "Rael was hospitalized as a result of the beating.}"
+                {"type": "prior_proceeding", "data": "Eddie Rael sued Emilio and Manuel Cadena for civil battery."},
+                {"type": "prior_proceeding", "data": "The trial court, sitting without a jury, found Emilio jointly liable with Manuel for the battery."},
+                {"type": "prior_proceeding", "Emilio appealed the judgment of the trial court.}"
+            ],
+            "issue": "Is a person present at a battery who verbally encourages the assailant, but does not physically assist him, civilly liable for the battery?",
+            "rule": "An individual may have liability for battery by encouraging or inciting the perpetrator by words or acts.",
+            "application": "The rule of law in the United States is: Civil liability for assault and battery is not limited to the direct perpetrator, but extends to any person who, by any means, aids or encourages the act. The act of verbal encouragement at the scene may give rise to liability because the perpetrator is goaded and encouraged at the behest of the person encouraging the battery. Here, Emilio encouraged Manuel to beat Rael and to continue to beat him. The battery may not have occurred or continued but for Emilio's encouragement. Therefore, Emilio had some part in the beating even though he never physically contacted Rael. Thus, Emilio is liable for the battery for aiding in its commission and encouraging the act.",
+            "conclusion": "The trial court's judgment against Emilio Cadena is affirmed."
+        }
+    ]
 
 
 The ruling text is as follows:
